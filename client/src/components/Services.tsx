@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
 import services from "../data/servicesData";
 import { Card, CardContent } from "@/components/ui/card";
-import { Palette, Monitor, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
-import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
+import { Palette, Monitor, ArrowRight } from "lucide-react";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -19,16 +17,6 @@ const getServiceIcon = (iconName: string) => {
 };
 
 const Services = () => {
-  const [expandedService, setExpandedService] = useState<string | null>(null);
-
-  const toggleExpand = (serviceId: string) => {
-    if (expandedService === serviceId) {
-      setExpandedService(null);
-    } else {
-      setExpandedService(serviceId);
-    }
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,13 +35,13 @@ const Services = () => {
       transition: { duration: 0.5 }
     }
   };
-
+  
   const subItemVariants = {
-    hidden: { opacity: 0, height: 0 },
+    hidden: { opacity: 0, y: 10 },
     visible: { 
       opacity: 1, 
-      height: 'auto',
-      transition: { duration: 0.3 }
+      y: 0,
+      transition: { duration: 0.3, delay: 0.1 }
     }
   };
 
@@ -78,72 +66,50 @@ const Services = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-10"
+          className="grid grid-cols-1 gap-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {services.map((service) => {
-            const isExpanded = expandedService === service.id;
-            
-            return (
-              <motion.div key={service.id} variants={itemVariants} className="flex flex-col">
-                <Card className="transition-all duration-300 transform hover:shadow-xl bg-gray-900/70 border border-gray-800 backdrop-blur-sm overflow-hidden">
-                  <CardContent className="p-8">
-                    <div className="flex items-center mb-6">
-                      <div className="w-20 h-20 bg-blue-900/30 rounded-2xl flex items-center justify-center mr-6 border border-blue-500/20">
-                        {getServiceIcon(service.icon)}
-                      </div>
-                      <div>
-                        <h3 className="text-3xl font-bold mb-2 text-blue-100">{service.title}</h3>
-                        <Badge variant="outline" className="bg-blue-900/30 text-blue-100 border-blue-500/30 px-3 py-1">
-                          {service.subServices.length} specializations
-                        </Badge>
-                      </div>
+          {services.map((service) => (
+            <motion.div key={service.id} variants={itemVariants} className="flex flex-col">
+              <Card className="transition-all duration-300 transform hover:shadow-xl bg-gray-900/70 border border-gray-800 backdrop-blur-sm overflow-hidden">
+                <CardContent className="p-8">
+                  <div className="flex items-center mb-6">
+                    <div className="w-20 h-20 bg-blue-900/30 rounded-2xl flex items-center justify-center mr-6 border border-blue-500/20">
+                      {getServiceIcon(service.icon)}
                     </div>
-                    
-                    <p className="text-gray-300 mb-6 text-lg">
-                      {service.description}
-                    </p>
-                    
-                    <button 
-                      onClick={() => toggleExpand(service.id)}
-                      className="flex items-center text-blue-400 hover:text-blue-300 transition-colors mb-4"
-                    >
-                      <span className="mr-2 font-medium">View specializations</span>
-                      {isExpanded ? 
-                        <ChevronUp className="h-5 w-5" /> : 
-                        <ChevronDown className="h-5 w-5" />
-                      }
-                    </button>
-                    
-                    <motion.div 
-                      variants={subItemVariants}
-                      initial="hidden"
-                      animate={isExpanded ? "visible" : "hidden"}
-                      className="space-y-4 overflow-hidden"
-                    >
-                      {service.subServices.map((subService) => (
-                        <div 
-                          key={subService.id} 
-                          className="p-4 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
-                        >
-                          <div className="flex items-center justify-between mb-2">
-                            <h4 className="text-lg font-semibold text-blue-300">{subService.title}</h4>
-                            <ArrowRight className="h-4 w-4 text-blue-500" />
-                          </div>
-                          <p className="text-gray-400">
-                            {subService.description}
-                          </p>
+                    <div>
+                      <h3 className="text-3xl font-bold mb-2 text-blue-100">{service.title}</h3>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-300 mb-8 text-lg">
+                    {service.description}
+                  </p>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {service.subServices.map((subService) => (
+                      <motion.div 
+                        key={subService.id}
+                        variants={subItemVariants}
+                        className="p-4 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
+                      >
+                        <div className="flex items-center justify-between mb-2">
+                          <h4 className="text-xl font-semibold text-blue-300">{subService.title}</h4>
+                          <ArrowRight className="h-4 w-4 text-blue-500" />
                         </div>
-                      ))}
-                    </motion.div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            );
-          })}
+                        <p className="text-gray-400">
+                          {subService.description}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

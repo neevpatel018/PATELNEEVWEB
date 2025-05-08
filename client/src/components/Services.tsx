@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import services from "../data/servicesData";
 import { Card, CardContent } from "@/components/ui/card";
-import { Palette, Monitor, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Palette, Monitor, ArrowRight, ExternalLink } from "lucide-react";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -100,9 +101,15 @@ const Services = () => {
                           <h4 className="text-2xl font-semibold text-blue-300">{subService.title}</h4>
                           <ArrowRight className="h-5 w-5 text-blue-500" />
                         </div>
-                        <p className="text-gray-400 text-lg">
+                        <p className="text-gray-400 text-lg mb-5">
                           {subService.description}
                         </p>
+                        <div className="flex justify-end">
+                          <Button variant="outline" size="sm" className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300">
+                            <span className="mr-2">View</span>
+                            <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                          </Button>
+                        </div>
                       </motion.div>
                     ))}
                   </div>

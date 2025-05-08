@@ -10,6 +10,7 @@ import UIDesignGallery from "./UIDesignGallery";
 import GymLandingGallery from "./GymLandingGallery";
 import LawyerLandingGallery from "./LawyerLandingGallery";
 import DoctorLandingGallery from "./DoctorLandingGallery";
+import RealEstateLandingGallery from "./RealEstateLandingGallery";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -31,6 +32,7 @@ const Services = () => {
   const [isGymLandingGalleryOpen, setIsGymLandingGalleryOpen] = useState(false);
   const [isLawyerLandingGalleryOpen, setIsLawyerLandingGalleryOpen] = useState(false);
   const [isDoctorLandingGalleryOpen, setIsDoctorLandingGalleryOpen] = useState(false);
+  const [isRealEstateLandingGalleryOpen, setIsRealEstateLandingGalleryOpen] = useState(false);
 
   const handleOpenMockupGallery = () => {
     setIsMockupGalleryOpen(true);
@@ -78,6 +80,14 @@ const Services = () => {
 
   const handleCloseDoctorLandingGallery = () => {
     setIsDoctorLandingGalleryOpen(false);
+  };
+  
+  const handleOpenRealEstateLandingGallery = () => {
+    setIsRealEstateLandingGalleryOpen(true);
+  };
+
+  const handleCloseRealEstateLandingGallery = () => {
+    setIsRealEstateLandingGalleryOpen(false);
   };
 
   const containerVariants = {
@@ -156,6 +166,14 @@ const Services = () => {
         <DoctorLandingGallery 
           isOpen={isDoctorLandingGalleryOpen} 
           onClose={handleCloseDoctorLandingGallery} 
+        />
+      )}
+      
+      {/* Display the real estate landing gallery when active */}
+      {isRealEstateLandingGalleryOpen && (
+        <RealEstateLandingGallery 
+          isOpen={isRealEstateLandingGalleryOpen} 
+          onClose={handleCloseRealEstateLandingGallery} 
         />
       )}
       
@@ -265,6 +283,21 @@ const Services = () => {
                                       size="sm"
                                       className="group bg-cyan-900/20 border-cyan-500/30 hover:bg-cyan-900/40 hover:border-cyan-400 text-cyan-300"
                                       onClick={handleOpenDoctorLandingGallery}
+                                    >
+                                      <span className="mr-1 text-xs">View Examples</span>
+                                      <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                    </Button>
+                                  </div>
+                                )}
+                                
+                                {/* Add View button specifically for the real estate landing page subcategory */}
+                                {subCategory.id === "realestate-landing" && (
+                                  <div className="flex justify-end mt-3">
+                                    <Button
+                                      variant="outline"
+                                      size="sm"
+                                      className="group bg-pink-900/20 border-pink-500/30 hover:bg-pink-900/40 hover:border-pink-400 text-pink-300"
+                                      onClick={handleOpenRealEstateLandingGallery}
                                     >
                                       <span className="mr-1 text-xs">View Examples</span>
                                       <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

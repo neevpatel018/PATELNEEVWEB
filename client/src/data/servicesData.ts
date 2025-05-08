@@ -29,8 +29,7 @@ export const services: ServiceItem[] = [
       {
         id: "thumbnail-design",
         title: "Thumbnail Design",
-        description: "Eye-catching thumbnail designs for videos, blogs, and digital content that drive engagement and clicks.",
-        galleryType: "device"
+        description: "Eye-catching thumbnail designs for videos, blogs, and digital content that drive engagement and clicks."
       }
     ]
   },
@@ -43,14 +42,12 @@ export const services: ServiceItem[] = [
       {
         id: "landing-pages",
         title: "Landing Pages",
-        description: "High-conversion landing pages designed to capture leads and communicate your value proposition effectively.",
-        galleryType: "device"
+        description: "High-conversion landing pages designed to capture leads and communicate your value proposition effectively."
       },
       {
         id: "custom-ui-design",
         title: "Custom UI Design",
-        description: "Unique user interface designs that reflect your brand identity while providing intuitive user experiences.",
-        galleryType: "office"
+        description: "Unique user interface designs that reflect your brand identity while providing intuitive user experiences."
       }
     ]
   }

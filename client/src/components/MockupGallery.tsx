@@ -9,15 +9,11 @@ import {
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Import all mockup images
+// Import only the entrance mockup images
 import entranceMockup2 from "@assets/ENTRANCE MOCKUP 2.webp";
 import entranceMockup3 from "@assets/ENTRANCE MOCKUP 3.webp";
-import mockLaptop from "@assets/MOCK LAP.png";
-import mockMobile from "@assets/MOCK MOBILE.png";
-import mockWeb from "@assets/MOCK WEB.png";
-import officeMockup from "@assets/OFFICE MOCKKUP.webp";
 
-type GalleryType = "entrance" | "device" | "office";
+type GalleryType = "entrance";
 
 interface MockupGalleryProps {
   isOpen: boolean;
@@ -25,43 +21,19 @@ interface MockupGalleryProps {
   type: GalleryType;
 }
 
-const getImagesForType = (type: GalleryType) => {
-  switch(type) {
-    case "entrance":
-      return [
-        { src: entranceMockup2, alt: "Entrance Mockup 2", title: "Modern Reception Area" },
-        { src: entranceMockup3, alt: "Entrance Mockup 3", title: "Elegant Entrance Design" }
-      ];
-    case "device":
-      return [
-        { src: mockLaptop, alt: "Laptop Mockup", title: "Laptop Website Display" },
-        { src: mockMobile, alt: "Mobile Mockup", title: "Mobile Responsive Design" },
-        { src: mockWeb, alt: "Web Mockup", title: "Multi-Device Web Display" }
-      ];
-    case "office":
-      return [
-        { src: officeMockup, alt: "Office Mockup", title: "Minimalist Office Setup" }
-      ];
-    default:
-      return [];
-  }
+const getImages = () => {
+  return [
+    { src: entranceMockup2, alt: "Entrance Mockup 2", title: "Modern Reception Area" },
+    { src: entranceMockup3, alt: "Entrance Mockup 3", title: "Elegant Entrance Design" }
+  ];
 };
 
-const getDialogTitle = (type: GalleryType) => {
-  switch(type) {
-    case "entrance":
-      return "Entrance Mockup Designs";
-    case "device":
-      return "Device Display Mockups";
-    case "office":
-      return "Office Environment Designs";
-    default:
-      return "Project Mockups";
-  }
+const getDialogTitle = () => {
+  return "Entrance Mockup Designs";
 };
 
-const MockupGallery = ({ isOpen, onClose, type }: MockupGalleryProps) => {
-  const images = getImagesForType(type);
+const MockupGallery = ({ isOpen, onClose }: MockupGalleryProps) => {
+  const images = getImages();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const currentImage = images[currentImageIndex];
 
@@ -77,7 +49,7 @@ const MockupGallery = ({ isOpen, onClose, type }: MockupGalleryProps) => {
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="sm:max-w-3xl bg-gray-900/95 border border-gray-800 text-white backdrop-blur-lg p-0 overflow-hidden">
         <DialogHeader className="p-6 pb-0 relative">
-          <DialogTitle className="text-2xl font-bold text-blue-300">{getDialogTitle(type)}</DialogTitle>
+          <DialogTitle className="text-2xl font-bold text-blue-300">{getDialogTitle()}</DialogTitle>
           <DialogDescription className="text-gray-400">
             Professional design mockups for your project
           </DialogDescription>
@@ -129,7 +101,7 @@ const MockupGallery = ({ isOpen, onClose, type }: MockupGalleryProps) => {
           {/* Image Dots */}
           {images.length > 1 && (
             <div className="flex justify-center space-x-2 mt-4">
-              {images.map((_, index) => (
+              {images.map((_: any, index: number) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImageIndex(index)}

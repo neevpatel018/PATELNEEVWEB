@@ -20,26 +20,14 @@ const getServiceIcon = (iconName: string) => {
 };
 
 const Services = () => {
-  const [activeGallery, setActiveGallery] = useState<{
-    isOpen: boolean;
-    type: "entrance" | "device" | "office" | null;
-  }>({
-    isOpen: false,
-    type: null
-  });
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
 
-  const handleOpenGallery = (type: "entrance" | "device" | "office") => {
-    setActiveGallery({
-      isOpen: true,
-      type
-    });
+  const handleOpenGallery = () => {
+    setIsGalleryOpen(true);
   };
 
   const handleCloseGallery = () => {
-    setActiveGallery({
-      isOpen: false,
-      type: null
-    });
+    setIsGalleryOpen(false);
   };
 
   const containerVariants = {
@@ -73,11 +61,11 @@ const Services = () => {
   return (
     <section id="services" className="py-16 bg-black text-white relative overflow-hidden">
       {/* Display the gallery when active */}
-      {activeGallery.isOpen && activeGallery.type && (
+      {isGalleryOpen && (
         <MockupGallery 
-          isOpen={activeGallery.isOpen} 
+          isOpen={isGalleryOpen} 
           onClose={handleCloseGallery} 
-          type={activeGallery.type} 
+          type="entrance" 
         />
       )}
       
@@ -138,12 +126,12 @@ const Services = () => {
                           {subService.description}
                         </p>
                         <div className="flex justify-end">
-                          {subService.galleryType && (
+                          {subService.id === "mockups" && (
                             <Button 
                               variant="outline" 
                               size="sm" 
                               className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
-                              onClick={() => handleOpenGallery(subService.galleryType as "entrance" | "device" | "office")}
+                              onClick={handleOpenGallery}
                             >
                               <span className="mr-2">View</span>
                               <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

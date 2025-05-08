@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Palette, Monitor, ArrowRight, ExternalLink } from "lucide-react";
 import MockupGallery from "./MockupGallery";
 import ThumbnailGallery from "./ThumbnailGallery";
+import UIDesignGallery from "./UIDesignGallery";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -23,6 +24,7 @@ const getServiceIcon = (iconName: string) => {
 const Services = () => {
   const [isMockupGalleryOpen, setIsMockupGalleryOpen] = useState(false);
   const [isThumbnailGalleryOpen, setIsThumbnailGalleryOpen] = useState(false);
+  const [isUIDesignGalleryOpen, setIsUIDesignGalleryOpen] = useState(false);
 
   const handleOpenMockupGallery = () => {
     setIsMockupGalleryOpen(true);
@@ -38,6 +40,14 @@ const Services = () => {
 
   const handleCloseThumbnailGallery = () => {
     setIsThumbnailGalleryOpen(false);
+  };
+  
+  const handleOpenUIDesignGallery = () => {
+    setIsUIDesignGalleryOpen(true);
+  };
+
+  const handleCloseUIDesignGallery = () => {
+    setIsUIDesignGalleryOpen(false);
   };
 
   const containerVariants = {
@@ -84,6 +94,14 @@ const Services = () => {
         <ThumbnailGallery 
           isOpen={isThumbnailGalleryOpen} 
           onClose={handleCloseThumbnailGallery} 
+        />
+      )}
+      
+      {/* Display the UI design gallery when active */}
+      {isUIDesignGalleryOpen && (
+        <UIDesignGallery 
+          isOpen={isUIDesignGalleryOpen} 
+          onClose={handleCloseUIDesignGallery} 
         />
       )}
       
@@ -177,6 +195,17 @@ const Services = () => {
                               size="sm" 
                               className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
                               onClick={handleOpenThumbnailGallery}
+                            >
+                              <span className="mr-2">View</span>
+                              <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            </Button>
+                          )}
+                          {subService.id === "custom-ui-design" && (
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
+                              onClick={handleOpenUIDesignGallery}
                             >
                               <span className="mr-2">View</span>
                               <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

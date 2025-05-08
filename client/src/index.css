@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LinkedIn colors */
+  --linkedin: 201 100% 35.7%;
+  --linkedin-foreground: 0 0% 100%;
+
+  /* Microsoft colors */
+  --microsoft: 199 100% 47%;
+  --microsoft-foreground: 0 0% 100%;
+  
+  /* Primary and secondary colors based on design reference */
+  --primary: 207 90% 35.7%; /* LinkedIn primary - #0077B5 */
+  --primary-50: 207 100% 95%;
+  --primary-100: 207 100% 90%;
+  --primary-500: 207 90% 35.7%;
+  --primary-600: 207 90% 32%;
+  --primary-700: 207 90% 27%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 199 100% 47%; /* Microsoft primary - #00A4EF */
+  --secondary-50: 199 100% 97%;
+  --secondary-100: 199 100% 95%;
+  --secondary-500: 199 100% 47%; 
+  --secondary-600: 199 100% 41%;
+  --secondary-700: 199 100% 36%;
+  --secondary-foreground: 0 0% 100%;
+
+  /* Base shadcn variables */
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 207 90% 35.7%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 199 100% 47%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-gray-50 text-gray-800;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-gray-800;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-4 text-center;
+  }
+
+  .section-description {
+    @apply text-gray-600 max-w-2xl mx-auto text-center mb-12;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-secondary-600 text-transparent bg-clip-text;
+  }
+
+  .card-hover {
+    @apply transition-transform hover:scale-[1.02] hover:shadow-lg;
+  }
+}

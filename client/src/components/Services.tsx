@@ -8,6 +8,7 @@ import MockupGallery from "./MockupGallery";
 import ThumbnailGallery from "./ThumbnailGallery";
 import UIDesignGallery from "./UIDesignGallery";
 import GymLandingGallery from "./GymLandingGallery";
+import LawyerLandingGallery from "./LawyerLandingGallery";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -27,6 +28,7 @@ const Services = () => {
   const [isThumbnailGalleryOpen, setIsThumbnailGalleryOpen] = useState(false);
   const [isUIDesignGalleryOpen, setIsUIDesignGalleryOpen] = useState(false);
   const [isGymLandingGalleryOpen, setIsGymLandingGalleryOpen] = useState(false);
+  const [isLawyerLandingGalleryOpen, setIsLawyerLandingGalleryOpen] = useState(false);
 
   const handleOpenMockupGallery = () => {
     setIsMockupGalleryOpen(true);
@@ -58,6 +60,14 @@ const Services = () => {
 
   const handleCloseGymLandingGallery = () => {
     setIsGymLandingGalleryOpen(false);
+  };
+  
+  const handleOpenLawyerLandingGallery = () => {
+    setIsLawyerLandingGalleryOpen(true);
+  };
+
+  const handleCloseLawyerLandingGallery = () => {
+    setIsLawyerLandingGalleryOpen(false);
   };
 
   const containerVariants = {
@@ -120,6 +130,14 @@ const Services = () => {
         <GymLandingGallery 
           isOpen={isGymLandingGalleryOpen} 
           onClose={handleCloseGymLandingGallery} 
+        />
+      )}
+      
+      {/* Display the lawyer landing gallery when active */}
+      {isLawyerLandingGalleryOpen && (
+        <LawyerLandingGallery 
+          isOpen={isLawyerLandingGalleryOpen} 
+          onClose={handleCloseLawyerLandingGallery} 
         />
       )}
       
@@ -199,6 +217,21 @@ const Services = () => {
                                       size="sm"
                                       className="group bg-purple-900/20 border-purple-500/30 hover:bg-purple-900/40 hover:border-purple-400 text-purple-300"
                                       onClick={handleOpenGymLandingGallery}
+                                    >
+                                      <span className="mr-1 text-xs">View Examples</span>
+                                      <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                    </Button>
+                                  </div>
+                                )}
+                                
+                                {/* Add View button specifically for the lawyer landing page subcategory */}
+                                {subCategory.id === "lawyer-landing" && (
+                                  <div className="flex justify-end mt-3">
+                                    <Button
+                                      variant="outline"
+                                      size="sm"
+                                      className="group bg-amber-900/20 border-amber-500/30 hover:bg-amber-900/40 hover:border-amber-400 text-amber-300"
+                                      onClick={handleOpenLawyerLandingGallery}
                                     >
                                       <span className="mr-1 text-xs">View Examples</span>
                                       <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

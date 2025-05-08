@@ -47,8 +47,75 @@ const Certifications = () => {
   };
 
   return (
-    <section id="certifications" className="py-16 bg-black text-white">
-      <div className="container mx-auto px-4">
+    <section id="certifications" className="py-16 bg-black text-white relative overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div 
+        className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blue-600/5"
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.1, 0.2, 0.1],
+          rotate: [0, 90, 180]
+        }}
+        transition={{ 
+          duration: 15, 
+          repeat: Infinity,
+          ease: "easeInOut" 
+        }}
+      />
+      
+      <motion.div 
+        className="absolute bottom-40 right-10 w-80 h-80 rounded-full bg-purple-600/5"
+        animate={{ 
+          scale: [1.2, 1, 1.2],
+          opacity: [0.1, 0.15, 0.1],
+          rotate: [180, 270, 360]
+        }}
+        transition={{ 
+          duration: 20, 
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      />
+      
+      <motion.div 
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-blue-500/10"
+        animate={{ 
+          scale: [1, 1.1, 1],
+          opacity: [0.05, 0.1, 0.05],
+          rotate: [0, 360]
+        }}
+        transition={{ 
+          duration: 30, 
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+      
+      {/* Small floating dots */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={`dot-${i}`}
+          className="absolute w-2 h-2 rounded-full bg-blue-500/30"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -30, 0],
+            opacity: [0, 0.5, 0],
+            scale: [0, 1, 0]
+          }}
+          transition={{
+            duration: 5 + Math.random() * 5,
+            repeat: Infinity,
+            delay: i * 2,
+            ease: "easeInOut"
+          }}
+        />
+      ))}
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -107,14 +174,31 @@ const Certifications = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
               >
-                <Card className="overflow-hidden h-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-transparent border border-gray-800">
+                <Card className="overflow-hidden h-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-transparent border border-gray-800 relative group">
+                  {/* Glowing effect on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/0 to-purple-600/0 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg"></div>
+                  
+                  {/* Corner accent */}
+                  <div className="absolute top-0 right-0 w-8 h-8 overflow-hidden">
+                    <div className={`w-16 h-16 origin-bottom-left rotate-45 transform translate-y-[-8px] translate-x-[8px] ${cert.provider === 'microsoft' ? 'bg-blue-600' : 'bg-indigo-500'}`}></div>
+                  </div>
+                  
                   <CardContent className="p-0">
-                    <div className="w-full h-full">
+                    <div className="w-full h-full relative">
                       <img 
                         src={imageMap[cert.imagePath] || cert.imagePath} 
                         alt={cert.title}
                         className="w-full h-auto object-contain"
                       />
+                      
+                      {/* Subtle overlay on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Reveal details on hover */}
+                      <div className="absolute bottom-0 left-0 right-0 p-3 text-xs text-white transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                        <div className="font-medium mb-1">{cert.title}</div>
+                        <div className="text-gray-300 text-opacity-70">{cert.date}</div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>

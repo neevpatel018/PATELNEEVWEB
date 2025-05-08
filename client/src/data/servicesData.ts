@@ -57,9 +57,9 @@ export const services: ServiceItem[] = [
             description: "Professional landing pages for law firms with trust-building design elements and clear call-to-actions."
           },
           {
-            id: "gamer-landing",
-            title: "Gamer Landing Pages",
-            description: "Dynamic and engaging landing pages for gaming products with immersive visuals and interactive elements."
+            id: "doctor-landing",
+            title: "Doctor Landing Pages",
+            description: "Professional and trustworthy landing pages for medical practices with clean design and patient-focused information."
           },
           {
             id: "realestate-landing",

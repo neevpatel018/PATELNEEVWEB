@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Palette, Monitor, ArrowRight, ExternalLink } from "lucide-react";
 import MockupGallery from "./MockupGallery";
+import ThumbnailGallery from "./ThumbnailGallery";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -20,14 +21,23 @@ const getServiceIcon = (iconName: string) => {
 };
 
 const Services = () => {
-  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
+  const [isMockupGalleryOpen, setIsMockupGalleryOpen] = useState(false);
+  const [isThumbnailGalleryOpen, setIsThumbnailGalleryOpen] = useState(false);
 
-  const handleOpenGallery = () => {
-    setIsGalleryOpen(true);
+  const handleOpenMockupGallery = () => {
+    setIsMockupGalleryOpen(true);
   };
 
-  const handleCloseGallery = () => {
-    setIsGalleryOpen(false);
+  const handleCloseMockupGallery = () => {
+    setIsMockupGalleryOpen(false);
+  };
+  
+  const handleOpenThumbnailGallery = () => {
+    setIsThumbnailGalleryOpen(true);
+  };
+
+  const handleCloseThumbnailGallery = () => {
+    setIsThumbnailGalleryOpen(false);
   };
 
   const containerVariants = {
@@ -60,12 +70,20 @@ const Services = () => {
 
   return (
     <section id="services" className="py-16 bg-black text-white relative overflow-hidden">
-      {/* Display the gallery when active */}
-      {isGalleryOpen && (
+      {/* Display the mockup gallery when active */}
+      {isMockupGalleryOpen && (
         <MockupGallery 
-          isOpen={isGalleryOpen} 
-          onClose={handleCloseGallery} 
+          isOpen={isMockupGalleryOpen} 
+          onClose={handleCloseMockupGallery} 
           type="entrance" 
+        />
+      )}
+      
+      {/* Display the thumbnail gallery when active */}
+      {isThumbnailGalleryOpen && (
+        <ThumbnailGallery 
+          isOpen={isThumbnailGalleryOpen} 
+          onClose={handleCloseThumbnailGallery} 
         />
       )}
       
@@ -131,7 +149,18 @@ const Services = () => {
                               variant="outline" 
                               size="sm" 
                               className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
-                              onClick={handleOpenGallery}
+                              onClick={handleOpenMockupGallery}
+                            >
+                              <span className="mr-2">View</span>
+                              <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            </Button>
+                          )}
+                          {subService.id === "thumbnail-design" && (
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
+                              onClick={handleOpenThumbnailGallery}
                             >
                               <span className="mr-2">View</span>
                               <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

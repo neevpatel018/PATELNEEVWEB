@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { User, Cpu, Cloud, Shield, Code } from "lucide-react";
+import profileImage from "../assets/profile.svg";
 
 const About = () => {
   const fadeIn = {
@@ -34,9 +35,13 @@ const About = () => {
             variants={fadeIn}
             custom={0}
           >
-            {/* A professional headshot placeholder */}
+            {/* Profile image */}
             <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden h-96 flex items-center justify-center">
-              <User className="h-32 w-32 text-blue-500" />
+              <img 
+                src={profileImage} 
+                alt="Neev Patel" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
           

@@ -2,19 +2,37 @@ import { motion } from "framer-motion";
 import { skillCategories, proficiencySkills } from "../data/skillsData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Check, Brain, Cloud, Shield } from "lucide-react";
+import { Check, Brain, Cloud, Shield, Github, Server } from "lucide-react";
+import { SiJavascript, SiPython, SiReact, SiTypescript, SiNodedotjs, SiGit } from "react-icons/si";
 
 const getIcon = (iconName: string) => {
   switch (iconName) {
     case "brain":
-      return <Brain className="text-secondary-500 h-5 w-5 mr-3" />;
+      return <Brain className="text-blue-500 h-5 w-5 mr-3" />;
     case "cloud":
-      return <Cloud className="text-secondary-500 h-5 w-5 mr-3" />;
+      return <Cloud className="text-blue-500 h-5 w-5 mr-3" />;
     case "shield":
-      return <Shield className="text-secondary-500 h-5 w-5 mr-3" />;
+      return <Shield className="text-blue-500 h-5 w-5 mr-3" />;
     default:
       return null;
   }
+};
+
+const getSkillIcon = (skillName: string) => {
+  const iconClass = "w-8 h-8 text-blue-500";
+  
+  const nameToIcon: Record<string, JSX.Element> = {
+    "JavaScript": <SiJavascript className={iconClass} />,
+    "Python": <SiPython className={iconClass} />,
+    "React": <SiReact className={iconClass} />,
+    "TypeScript": <SiTypescript className={iconClass} />,
+    "Node.js": <SiNodedotjs className={iconClass} />,
+    "Microsoft Azure": <Cloud className={iconClass} />,
+    "Git": <SiGit className={iconClass} />,
+    "Azure DevOps": <Server className={iconClass} />
+  };
+  
+  return nameToIcon[skillName] || null;
 };
 
 const Skills = () => {
@@ -42,7 +60,7 @@ const Skills = () => {
   const professionalSkills = proficiencySkills.filter(skill => skill.category === "professional");
 
   return (
-    <section id="skills" className="py-16 bg-white">
+    <section id="skills" className="py-16 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-12"
@@ -51,8 +69,8 @@ const Skills = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4">Professional Skills</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Professional Skills</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
             My diverse skill set enables me to deliver comprehensive solutions across multiple technology domains.
           </p>
         </motion.div>
@@ -61,7 +79,7 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <motion.div 
               key={category.id}
-              className="bg-gray-50 rounded-xl p-6 shadow-sm h-full"
+              className="bg-gray-800 rounded-xl p-6 shadow-lg border border-gray-700 h-full"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -70,12 +88,12 @@ const Skills = () => {
             >
               <div className="flex items-center mb-4">
                 {getIcon(category.icon)}
-                <h3 className="text-xl font-semibold">{category.title}</h3>
+                <h3 className="text-xl font-semibold text-white">{category.title}</h3>
               </div>
               <ul className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <li key={skillIndex} className="flex items-center">
-                    <Check className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  <li key={skillIndex} className="flex items-center text-gray-300">
+                    <Check className="h-4 w-4 text-blue-500 mr-2 flex-shrink-0" />
                     <span>{skill}</span>
                   </li>
                 ))}
@@ -91,19 +109,23 @@ const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
+            className="bg-gray-800 p-6 rounded-xl border border-gray-700"
           >
-            <h3 className="text-xl font-semibold mb-6">Technical Proficiency</h3>
+            <h3 className="text-xl font-semibold mb-6 text-white">Technical Proficiency</h3>
             
-            <div className="space-y-4">
+            <div className="space-y-6">
               {technicalSkills.map((skill, index) => (
                 <div key={index}>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium">{skill.name}</span>
-                    <span className="text-sm font-medium">{skill.percentage}%</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center">
+                      {getSkillIcon(skill.name)}
+                      <span className="text-sm font-medium ml-2 text-gray-200">{skill.name}</span>
+                    </div>
+                    <span className="text-sm font-medium text-gray-300">{skill.percentage}%</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                  <div className="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
                     <motion.div
-                      className="bg-secondary-500 h-2 rounded-full"
+                      className="bg-blue-600 h-2.5 rounded-full"
                       initial="initial"
                       whileInView="animate"
                       viewport={{ once: true }}
@@ -121,19 +143,20 @@ const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-gray-800 p-6 rounded-xl border border-gray-700"
           >
-            <h3 className="text-xl font-semibold mb-6">Professional Skills</h3>
+            <h3 className="text-xl font-semibold mb-6 text-white">Professional Skills</h3>
             
-            <div className="space-y-4">
+            <div className="space-y-6">
               {professionalSkills.map((skill, index) => (
                 <div key={index}>
-                  <div className="flex justify-between mb-1">
-                    <span className="text-sm font-medium">{skill.name}</span>
-                    <span className="text-sm font-medium">{skill.percentage}%</span>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-sm font-medium text-gray-200">{skill.name}</span>
+                    <span className="text-sm font-medium text-gray-300">{skill.percentage}%</span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
+                  <div className="w-full bg-gray-700 rounded-full h-2.5 overflow-hidden">
                     <motion.div
-                      className="bg-primary-500 h-2 rounded-full"
+                      className="bg-indigo-500 h-2.5 rounded-full"
                       initial="initial"
                       whileInView="animate"
                       viewport={{ once: true }}

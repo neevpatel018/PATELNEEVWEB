@@ -1,12 +1,10 @@
 import { motion } from "framer-motion";
 import { services } from "../data/servicesData";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Search, Shield, Cloud, Users, BarChart3, Bot } from "lucide-react";
+import { CheckCircle, Search, Shield, Cloud, Users, BarChart3, Bot } from "lucide-react";
 
-const getServiceIcon = (iconName: string, isTechnical: boolean) => {
-  const iconClass = isTechnical 
-    ? "w-6 h-6 text-secondary-500" 
-    : "w-6 h-6 text-primary-500";
+const getServiceIcon = (iconName: string) => {
+  const iconClass = "w-10 h-10 text-blue-500";
   
   switch (iconName) {
     case "robot":
@@ -47,7 +45,7 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-16 bg-gray-50">
+    <section id="services" className="py-16 bg-black text-white">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-12"
@@ -56,8 +54,8 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4">Professional Services</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4">Professional Services</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
             Expert services designed to help organizations leverage cutting-edge technologies and best practices.
           </p>
         </motion.div>
@@ -70,23 +68,21 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           {services.map((service) => {
-            const isTechnical = service.category === "technical";
-            
             return (
               <motion.div key={service.id} variants={itemVariants}>
-                <Card className="h-full transition-transform hover:scale-[1.02] hover:shadow-lg">
+                <Card className="h-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gray-800 border border-gray-700">
                   <CardContent className="p-6">
-                    <div className={`w-12 h-12 ${isTechnical ? 'bg-secondary-50' : 'bg-primary-50'} rounded-full flex items-center justify-center mb-4`}>
-                      {getServiceIcon(service.icon, isTechnical)}
+                    <div className="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center mb-4">
+                      {getServiceIcon(service.icon)}
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
-                    <p className="text-gray-600 mb-4">
+                    <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
+                    <p className="text-gray-300 mb-4">
                       {service.description}
                     </p>
-                    <ul className="text-gray-600 space-y-2 mb-4">
+                    <ul className="text-gray-300 space-y-2 mb-4">
                       {service.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
-                          <Check className="h-4 w-4 text-green-500 mt-1 mr-2 flex-shrink-0" />
+                          <CheckCircle className="h-4 w-4 text-blue-500 mt-1 mr-2 flex-shrink-0" />
                           <span>{feature}</span>
                         </li>
                       ))}

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import services from "../data/servicesData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Palette, Monitor, ArrowRight } from "lucide-react";
+import MockupGallery from "./MockupGallery";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -66,7 +67,7 @@ const Services = () => {
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 gap-10"
+          className="grid grid-cols-1 gap-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -89,20 +90,26 @@ const Services = () => {
                     {service.description}
                   </p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 gap-10">
                     {service.subServices.map((subService) => (
                       <motion.div 
                         key={subService.id}
                         variants={subItemVariants}
-                        className="p-4 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
+                        className="p-6 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
                       >
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-xl font-semibold text-blue-300">{subService.title}</h4>
-                          <ArrowRight className="h-4 w-4 text-blue-500" />
+                        <div className="flex items-center justify-between mb-3">
+                          <h4 className="text-2xl font-semibold text-blue-300">{subService.title}</h4>
+                          <ArrowRight className="h-5 w-5 text-blue-500" />
                         </div>
-                        <p className="text-gray-400">
+                        <p className="text-gray-400 mb-6 text-lg">
                           {subService.description}
                         </p>
+                        
+                        {subService.gallery && (
+                          <div className="mt-4">
+                            <MockupGallery category={subService.gallery.type} />
+                          </div>
+                        )}
                       </motion.div>
                     ))}
                   </div>

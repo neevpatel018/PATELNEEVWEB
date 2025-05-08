@@ -171,61 +171,61 @@ const Services = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Professional Services</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Professional Services</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
             Creative design services that combine aesthetic excellence with functional perfection.
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 gap-12"
+          className="flex flex-col lg:flex-row gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
           {services.map((service) => (
-            <motion.div key={service.id} variants={itemVariants} className="flex flex-col">
-              <Card className="transition-all duration-300 transform hover:shadow-xl bg-gray-900/70 border border-gray-800 backdrop-blur-sm overflow-hidden">
-                <CardContent className="p-8">
+            <motion.div key={service.id} variants={itemVariants} className="flex flex-col w-full lg:w-1/2">
+              <Card className="transition-all duration-300 transform hover:shadow-xl bg-gray-900/70 border border-gray-800 backdrop-blur-sm overflow-hidden h-full">
+                <CardContent className="p-6 lg:p-8 h-full flex flex-col">
                   <div className="flex items-center mb-6">
-                    <div className="w-20 h-20 bg-blue-900/30 rounded-2xl flex items-center justify-center mr-6 border border-blue-500/20">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-900/30 rounded-2xl flex items-center justify-center mr-4 sm:mr-6 border border-blue-500/20">
                       {getServiceIcon(service.icon)}
                     </div>
                     <div>
-                      <h3 className="text-3xl font-bold mb-2 text-blue-100">{service.title}</h3>
+                      <h3 className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2 text-blue-100">{service.title}</h3>
                     </div>
                   </div>
                   
-                  <p className="text-gray-300 mb-8 text-lg">
+                  <p className="text-gray-300 mb-6 sm:mb-8 text-base sm:text-lg">
                     {service.description}
                   </p>
                   
-                  <div className="grid grid-cols-1 gap-10">
+                  <div className="grid grid-cols-1 gap-6 flex-grow">
                     {service.subServices.map((subService) => (
                       <motion.div 
                         key={subService.id}
                         variants={subItemVariants}
-                        className="p-6 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
+                        className="p-4 sm:p-6 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
                       >
-                        <div className="flex items-center justify-between mb-3">
-                          <h4 className="text-2xl font-semibold text-blue-300">{subService.title}</h4>
-                          <ArrowRight className="h-5 w-5 text-blue-500" />
+                        <div className="flex items-center justify-between mb-2 sm:mb-3">
+                          <h4 className="text-xl sm:text-2xl font-semibold text-blue-300">{subService.title}</h4>
+                          <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
                         </div>
-                        <p className="text-gray-400 text-lg mb-5">
+                        <p className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-5">
                           {subService.description}
                         </p>
                         
                         {/* Display landing page subcategories if they exist */}
                         {subService.id === "landing-pages" && subService.subCategories && (
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mb-6">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-4 mb-5 sm:mb-6">
                             {subService.subCategories.map((subCategory) => (
                               <div 
                                 key={subCategory.id}
-                                className="p-4 bg-gray-800/30 border border-gray-700 rounded-md hover:border-blue-600/50 transition-colors"
+                                className="p-3 sm:p-4 bg-gray-800/30 border border-gray-700 rounded-md hover:border-blue-600/50 transition-colors"
                               >
-                                <h5 className="text-lg font-medium text-blue-200 mb-2">{subCategory.title}</h5>
-                                <p className="text-gray-400 text-sm">{subCategory.description}</p>
+                                <h5 className="text-base sm:text-lg font-medium text-blue-200 mb-1 sm:mb-2">{subCategory.title}</h5>
+                                <p className="text-gray-400 text-xs sm:text-sm">{subCategory.description}</p>
                                 
                                 {/* Add View button specifically for the gym landing page subcategory */}
                                 {subCategory.id === "gym" && (

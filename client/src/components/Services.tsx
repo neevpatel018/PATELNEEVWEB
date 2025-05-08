@@ -205,7 +205,7 @@ const Services = () => {
           {services.map((service) => (
             <motion.div key={service.id} variants={itemVariants} className="flex flex-col w-full lg:w-1/2">
               <Card className="transition-all duration-300 transform hover:shadow-xl bg-gray-900/70 border border-gray-800 backdrop-blur-sm overflow-hidden h-full">
-                <CardContent className="p-6 lg:p-8 h-full flex flex-col">
+                <CardContent className="p-5 lg:p-6 h-full flex flex-col">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-900/30 rounded-2xl flex items-center justify-center mr-4 sm:mr-6 border border-blue-500/20">
                       {getServiceIcon(service.icon)}
@@ -219,18 +219,18 @@ const Services = () => {
                     {service.description}
                   </p>
                   
-                  <div className="grid grid-cols-1 gap-6 flex-grow">
+                  <div className="grid grid-cols-1 gap-4">
                     {service.subServices.map((subService) => (
                       <motion.div 
                         key={subService.id}
                         variants={subItemVariants}
-                        className="p-4 sm:p-6 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
+                        className="p-4 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
                       >
                         <div className="flex items-center justify-between mb-2 sm:mb-3">
                           <h4 className="text-xl sm:text-2xl font-semibold text-blue-300">{subService.title}</h4>
                           <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500" />
                         </div>
-                        <p className="text-gray-400 text-base sm:text-lg mb-4 sm:mb-5">
+                        <p className="text-gray-400 text-base sm:text-lg mb-3">
                           {subService.description}
                         </p>
                         
@@ -309,7 +309,7 @@ const Services = () => {
                           </div>
                         )}
                         
-                        <div className="flex justify-end">
+                        <div className="flex justify-end mt-2">
                           {subService.id === "mockups" && (
                             <Button 
                               variant="outline" 

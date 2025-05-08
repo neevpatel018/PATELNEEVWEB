@@ -48,68 +48,73 @@ const Certifications = () => {
 
   return (
     <section id="certifications" className="py-16 bg-black text-white relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Background glow effects similar to hero section */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[80px] z-0"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-500/10 rounded-full filter blur-[80px] z-0"></div>
+      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-indigo-500/5 rounded-full filter blur-[50px] z-0"></div>
+      
+      {/* Animated grid lines */}
+      <div className="absolute inset-0 overflow-hidden opacity-10">
+        <div className="absolute left-0 top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+        <div className="absolute left-0 top-[33%] w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+        <div className="absolute left-0 top-[66%] w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+        <div className="absolute left-0 bottom-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+        
+        <div className="absolute top-0 left-0 h-full w-[1px] bg-gradient-to-b from-transparent via-blue-500 to-transparent"></div>
+        <div className="absolute top-0 left-[33%] h-full w-[1px] bg-gradient-to-b from-transparent via-blue-500 to-transparent"></div>
+        <div className="absolute top-0 left-[66%] h-full w-[1px] bg-gradient-to-b from-transparent via-blue-500 to-transparent"></div>
+        <div className="absolute top-0 right-0 h-full w-[1px] bg-gradient-to-b from-transparent via-blue-500 to-transparent"></div>
+      </div>
+      
+      {/* Floating elements */}
       <motion.div 
-        className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blue-600/5"
+        className="absolute top-10 right-[10%] w-20 h-20 border border-blue-500/20 rounded-lg opacity-30"
         animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1],
-          rotate: [0, 90, 180]
+          y: [0, -15, 0],
+          rotate: [0, 5, 0],
+          opacity: [0.2, 0.3, 0.2]
         }}
         transition={{ 
-          duration: 15, 
+          duration: 8, 
           repeat: Infinity,
           ease: "easeInOut" 
         }}
       />
       
       <motion.div 
-        className="absolute bottom-40 right-10 w-80 h-80 rounded-full bg-purple-600/5"
+        className="absolute bottom-20 left-[15%] w-16 h-16 border border-purple-500/20 rounded-full opacity-20"
         animate={{ 
-          scale: [1.2, 1, 1.2],
-          opacity: [0.1, 0.15, 0.1],
-          rotate: [180, 270, 360]
+          y: [0, 20, 0],
+          scale: [1, 1.1, 1],
+          opacity: [0.1, 0.3, 0.1]
         }}
         transition={{ 
-          duration: 20, 
+          duration: 10, 
           repeat: Infinity,
           ease: "easeInOut",
-          delay: 2
+          delay: 1
         }}
       />
       
-      <motion.div 
-        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-blue-500/10"
-        animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.05, 0.1, 0.05],
-          rotate: [0, 360]
-        }}
-        transition={{ 
-          duration: 30, 
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
-      
-      {/* Small floating dots */}
-      {[...Array(8)].map((_, i) => (
+      {/* Digital particle effect */}
+      {[...Array(15)].map((_, i) => (
         <motion.div
-          key={`dot-${i}`}
-          className="absolute w-2 h-2 rounded-full bg-blue-500/30"
+          key={`particle-${i}`}
+          className="absolute w-1 h-1 bg-blue-500"
           style={{
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            opacity: [0, 0.5, 0],
-            scale: [0, 1, 0]
+            y: [0, Math.random() > 0.5 ? -20 : 20, 0],
+            x: [0, Math.random() > 0.5 ? -20 : 20, 0],
+            opacity: [0, 0.8, 0],
+            scale: [0, Math.random() * 2, 0]
           }}
           transition={{
-            duration: 5 + Math.random() * 5,
+            duration: 4 + Math.random() * 6,
             repeat: Infinity,
-            delay: i * 2,
+            delay: i * 0.3,
             ease: "easeInOut"
           }}
         />

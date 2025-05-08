@@ -1,36 +1,40 @@
 import { motion } from "framer-motion";
-import { services } from "../data/servicesData";
+import services from "../data/servicesData";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Search, Shield, Cloud, Users, BarChart3, Bot } from "lucide-react";
+import { Palette, Monitor, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { Badge } from "@/components/ui/badge";
 
 const getServiceIcon = (iconName: string) => {
-  const iconClass = "w-10 h-10 text-blue-500";
+  const iconClass = "w-12 h-12 text-blue-500";
   
   switch (iconName) {
-    case "robot":
-      return <Bot className={iconClass} />;
-    case "cloud":
-      return <Cloud className={iconClass} />;
-    case "shield":
-      return <Shield className={iconClass} />;
-    case "users":
-      return <Users className={iconClass} />;
-    case "workflow":
-      return <BarChart3 className={iconClass} />;
-    case "search":
-      return <Search className={iconClass} />;
+    case "palette":
+      return <Palette className={iconClass} />;
+    case "monitor":
+      return <Monitor className={iconClass} />;
     default:
-      return <Bot className={iconClass} />;
+      return <Palette className={iconClass} />;
   }
 };
 
 const Services = () => {
+  const [expandedService, setExpandedService] = useState<string | null>(null);
+
+  const toggleExpand = (serviceId: string) => {
+    if (expandedService === serviceId) {
+      setExpandedService(null);
+    } else {
+      setExpandedService(serviceId);
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.2
       }
     }
   };
@@ -44,49 +48,97 @@ const Services = () => {
     }
   };
 
+  const subItemVariants = {
+    hidden: { opacity: 0, height: 0 },
+    visible: { 
+      opacity: 1, 
+      height: 'auto',
+      transition: { duration: 0.3 }
+    }
+  };
+
   return (
-    <section id="services" className="py-16 bg-black text-white">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-16 bg-black text-white relative overflow-hidden">
+      {/* Background glow effects similar to other sections */}
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[80px] z-0"></div>
+      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-500/10 rounded-full filter blur-[80px] z-0"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
-          className="text-center mb-12"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-4">Professional Services</h2>
+          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Professional Services</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Expert services designed to help organizations leverage cutting-edge technologies and best practices.
+            Creative design services that combine aesthetic excellence with functional perfection.
           </p>
         </motion.div>
 
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
           {services.map((service) => {
+            const isExpanded = expandedService === service.id;
+            
             return (
-              <motion.div key={service.id} variants={itemVariants}>
-                <Card className="h-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl bg-gray-800 border border-gray-700">
-                  <CardContent className="p-6">
-                    <div className="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center mb-4">
-                      {getServiceIcon(service.icon)}
+              <motion.div key={service.id} variants={itemVariants} className="flex flex-col">
+                <Card className="transition-all duration-300 transform hover:shadow-xl bg-gray-900/70 border border-gray-800 backdrop-blur-sm overflow-hidden">
+                  <CardContent className="p-8">
+                    <div className="flex items-center mb-6">
+                      <div className="w-20 h-20 bg-blue-900/30 rounded-2xl flex items-center justify-center mr-6 border border-blue-500/20">
+                        {getServiceIcon(service.icon)}
+                      </div>
+                      <div>
+                        <h3 className="text-3xl font-bold mb-2 text-blue-100">{service.title}</h3>
+                        <Badge variant="outline" className="bg-blue-900/30 text-blue-100 border-blue-500/30 px-3 py-1">
+                          {service.subServices.length} specializations
+                        </Badge>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
-                    <p className="text-gray-300 mb-4">
+                    
+                    <p className="text-gray-300 mb-6 text-lg">
                       {service.description}
                     </p>
-                    <ul className="text-gray-300 space-y-2 mb-4">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start">
-                          <CheckCircle className="h-4 w-4 text-blue-500 mt-1 mr-2 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
+                    
+                    <button 
+                      onClick={() => toggleExpand(service.id)}
+                      className="flex items-center text-blue-400 hover:text-blue-300 transition-colors mb-4"
+                    >
+                      <span className="mr-2 font-medium">View specializations</span>
+                      {isExpanded ? 
+                        <ChevronUp className="h-5 w-5" /> : 
+                        <ChevronDown className="h-5 w-5" />
+                      }
+                    </button>
+                    
+                    <motion.div 
+                      variants={subItemVariants}
+                      initial="hidden"
+                      animate={isExpanded ? "visible" : "hidden"}
+                      className="space-y-4 overflow-hidden"
+                    >
+                      {service.subServices.map((subService) => (
+                        <div 
+                          key={subService.id} 
+                          className="p-4 rounded-lg bg-gray-800/50 border border-gray-700 hover:border-blue-800 transition-colors"
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="text-lg font-semibold text-blue-300">{subService.title}</h4>
+                            <ArrowRight className="h-4 w-4 text-blue-500" />
+                          </div>
+                          <p className="text-gray-400">
+                            {subService.description}
+                          </p>
+                        </div>
                       ))}
-                    </ul>
+                    </motion.div>
                   </CardContent>
                 </Card>
               </motion.div>

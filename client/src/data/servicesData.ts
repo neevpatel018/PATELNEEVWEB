@@ -1,84 +1,53 @@
+export type ServiceSubItem = {
+  id: string;
+  title: string;
+  description: string;
+};
+
 export type ServiceItem = {
   id: string;
   title: string;
   description: string;
-  features: string[];
   icon: string;
-  category: 'technical' | 'business';
+  subServices: ServiceSubItem[];
 };
 
 export const services: ServiceItem[] = [
   {
-    id: "ai-strategy",
-    title: "AI Strategy & Implementation",
-    description: "Develop comprehensive AI strategies and implementation plans tailored to your organization's specific needs and objectives.",
-    features: [
-      "AI Readiness Assessment",
-      "Generative AI Implementation",
-      "AI Governance Frameworks"
-    ],
-    icon: "robot",
-    category: "technical"
+    id: "graphic-design",
+    title: "Graphic Design",
+    description: "Professional graphic design services for both digital and print media with focus on modern aesthetics and brand identity.",
+    icon: "palette",
+    subServices: [
+      {
+        id: "mockups",
+        title: "Mockups",
+        description: "High-quality product mockups for presentations, marketing materials, and product visualization."
+      },
+      {
+        id: "thumbnail-design",
+        title: "Thumbnail Design",
+        description: "Eye-catching thumbnail designs for videos, blogs, and digital content that drive engagement and clicks."
+      }
+    ]
   },
   {
-    id: "cloud-migration",
-    title: "Cloud Migration & Optimization",
-    description: "Guide your organization through successful cloud migration with a focus on Microsoft Azure solutions and optimization.",
-    features: [
-      "Cloud Migration Strategy",
-      "Azure Architecture Design",
-      "Cost Optimization Analysis"
-    ],
-    icon: "cloud",
-    category: "technical"
-  },
-  {
-    id: "info-security",
-    title: "Information Security & Compliance",
-    description: "Implement robust information security frameworks and ensure compliance with regulatory requirements.",
-    features: [
-      "Microsoft Purview Implementation",
-      "Security Posture Assessment",
-      "Sensitive Information Management"
-    ],
-    icon: "shield",
-    category: "technical"
-  },
-  {
-    id: "executive-coaching",
-    title: "Executive Coaching & Training",
-    description: "Provide leadership coaching and training focused on technology transformation and AI integration.",
-    features: [
-      "AI Leadership Development",
-      "Digital Transformation Coaching",
-      "Team Capabilities Assessment"
-    ],
-    icon: "users",
-    category: "business"
-  },
-  {
-    id: "digital-transformation",
-    title: "Digital Transformation Strategy",
-    description: "Develop comprehensive digital transformation roadmaps aligned with business objectives and technological capabilities.",
-    features: [
-      "Digital Maturity Assessment",
-      "Technology Roadmap Development",
-      "Change Management Strategy"
-    ],
-    icon: "workflow",
-    category: "business"
-  },
-  {
-    id: "tech-advisory",
-    title: "Tech Advisory Services",
-    description: "Provide expert advice on technology selection, implementation, and optimization for maximum business value.",
-    features: [
-      "Technology Stack Assessment",
-      "Vendor Selection Guidance",
-      "Technology ROI Analysis"
-    ],
-    icon: "search",
-    category: "business"
+    id: "website-design",
+    title: "Website Design",
+    description: "Custom website design services focused on user experience, modern aesthetics, and responsive layouts.",
+    icon: "monitor",
+    subServices: [
+      {
+        id: "landing-pages",
+        title: "Landing Pages",
+        description: "High-conversion landing pages designed to capture leads and communicate your value proposition effectively."
+      },
+      {
+        id: "custom-ui-design",
+        title: "Custom UI Design",
+        description: "Unique user interface designs that reflect your brand identity while providing intuitive user experiences."
+      }
+    ]
   }
 ];
 

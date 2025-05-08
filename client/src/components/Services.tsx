@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import services from "../data/servicesData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Palette, Monitor, ArrowRight } from "lucide-react";
-import MockupGallery from "./MockupGallery";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -101,15 +100,9 @@ const Services = () => {
                           <h4 className="text-2xl font-semibold text-blue-300">{subService.title}</h4>
                           <ArrowRight className="h-5 w-5 text-blue-500" />
                         </div>
-                        <p className="text-gray-400 mb-6 text-lg">
+                        <p className="text-gray-400 text-lg">
                           {subService.description}
                         </p>
-                        
-                        {subService.gallery && (
-                          <div className="mt-4">
-                            <MockupGallery category={subService.gallery.type} />
-                          </div>
-                        )}
                       </motion.div>
                     ))}
                   </div>

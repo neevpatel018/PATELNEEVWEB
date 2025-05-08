@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import services from "../data/servicesData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Palette, Monitor, ArrowRight, ExternalLink } from "lucide-react";
+import MockupGallery from "./MockupGallery";
 
 const getServiceIcon = (iconName: string) => {
   const iconClass = "w-12 h-12 text-blue-500";
@@ -18,6 +20,28 @@ const getServiceIcon = (iconName: string) => {
 };
 
 const Services = () => {
+  const [activeGallery, setActiveGallery] = useState<{
+    isOpen: boolean;
+    type: "entrance" | "device" | "office" | null;
+  }>({
+    isOpen: false,
+    type: null
+  });
+
+  const handleOpenGallery = (type: "entrance" | "device" | "office") => {
+    setActiveGallery({
+      isOpen: true,
+      type
+    });
+  };
+
+  const handleCloseGallery = () => {
+    setActiveGallery({
+      isOpen: false,
+      type: null
+    });
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -48,6 +72,15 @@ const Services = () => {
 
   return (
     <section id="services" className="py-16 bg-black text-white relative overflow-hidden">
+      {/* Display the gallery when active */}
+      {activeGallery.isOpen && activeGallery.type && (
+        <MockupGallery 
+          isOpen={activeGallery.isOpen} 
+          onClose={handleCloseGallery} 
+          type={activeGallery.type} 
+        />
+      )}
+      
       {/* Background glow effects similar to other sections */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[80px] z-0"></div>
       <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-500/10 rounded-full filter blur-[80px] z-0"></div>
@@ -105,10 +138,17 @@ const Services = () => {
                           {subService.description}
                         </p>
                         <div className="flex justify-end">
-                          <Button variant="outline" size="sm" className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300">
-                            <span className="mr-2">View</span>
-                            <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                          </Button>
+                          {subService.galleryType && (
+                            <Button 
+                              variant="outline" 
+                              size="sm" 
+                              className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
+                              onClick={() => handleOpenGallery(subService.galleryType as "entrance" | "device" | "office")}
+                            >
+                              <span className="mr-2">View</span>
+                              <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            </Button>
+                          )}
                         </div>
                       </motion.div>
                     ))}

@@ -2,6 +2,7 @@ export type ServiceSubItem = {
   id: string;
   title: string;
   description: string;
+  galleryType?: "entrance" | "device" | "office";
 };
 
 export type ServiceItem = {
@@ -22,12 +23,14 @@ export const services: ServiceItem[] = [
       {
         id: "mockups",
         title: "Mockups",
-        description: "High-quality product mockups for presentations, marketing materials, and product visualization."
+        description: "High-quality product mockups for presentations, marketing materials, and product visualization.",
+        galleryType: "entrance"
       },
       {
         id: "thumbnail-design",
         title: "Thumbnail Design",
-        description: "Eye-catching thumbnail designs for videos, blogs, and digital content that drive engagement and clicks."
+        description: "Eye-catching thumbnail designs for videos, blogs, and digital content that drive engagement and clicks.",
+        galleryType: "device"
       }
     ]
   },
@@ -40,12 +43,14 @@ export const services: ServiceItem[] = [
       {
         id: "landing-pages",
         title: "Landing Pages",
-        description: "High-conversion landing pages designed to capture leads and communicate your value proposition effectively."
+        description: "High-conversion landing pages designed to capture leads and communicate your value proposition effectively.",
+        galleryType: "device"
       },
       {
         id: "custom-ui-design",
         title: "Custom UI Design",
-        description: "Unique user interface designs that reflect your brand identity while providing intuitive user experiences."
+        description: "Unique user interface designs that reflect your brand identity while providing intuitive user experiences.",
+        galleryType: "office"
       }
     ]
   }

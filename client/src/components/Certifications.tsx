@@ -4,6 +4,34 @@ import { certifications } from "../data/certificationsData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+// Import certificate images
+import amplifyThinking from "@assets/Amplify Your Critical Thinking with Generative AI.png";
+import aiPoweredManager from "@assets/Become an AI-Powered People Manager.png";
+import collaborativeTeam from "@assets/Building a Collaborative Team Culture with AI.png";
+import enhanceCoaching from "@assets/Enhance Your Coaching Impact with Generative AI.png";
+import managersGuide from "@assets/The Manager's Guide to Career Conversations in the Age of AI.png";
+import microsoftSkillsFest from "@assets/Microsoft AI Skills Fest.png";
+import sensitiveInfo from "@assets/Create-and-manage-sensitive-information-type.png";
+import cloudComputing from "@assets/Describe-cloud-computing.png";
+import publicSector from "@assets/Enhance-public-sector-services-with-generative-AI.png";
+import infoSecurity from "@assets/Introduction-to-information-security-and-compliance.png";
+import azurePlan from "@assets/Plan-and-prepare-to-develop-AI-solutions-on-Azure.png";
+
+// Map paths to imported images
+const imageMap: Record<string, string> = {
+  "attached_assets/Amplify Your Critical Thinking with Generative AI.png": amplifyThinking,
+  "attached_assets/Become an AI-Powered People Manager.png": aiPoweredManager,
+  "attached_assets/Building a Collaborative Team Culture with AI.png": collaborativeTeam,
+  "attached_assets/Enhance Your Coaching Impact with Generative AI.png": enhanceCoaching,
+  "attached_assets/The Manager's Guide to Career Conversations in the Age of AI.png": managersGuide,
+  "attached_assets/Microsoft AI Skills Fest.png": microsoftSkillsFest,
+  "attached_assets/Create-and-manage-sensitive-information-type.png": sensitiveInfo,
+  "attached_assets/Describe-cloud-computing.png": cloudComputing,
+  "attached_assets/Enhance-public-sector-services-with-generative-AI.png": publicSector,
+  "attached_assets/Introduction-to-information-security-and-compliance.png": infoSecurity,
+  "attached_assets/Plan-and-prepare-to-develop-AI-solutions-on-Azure.png": azurePlan
+};
+
 type FilterType = "all" | "microsoft" | "linkedin";
 
 const Certifications = () => {
@@ -83,7 +111,7 @@ const Certifications = () => {
                   <CardContent className="p-0">
                     <div className="w-full h-full">
                       <img 
-                        src={cert.imagePath} 
+                        src={imageMap[cert.imagePath] || cert.imagePath} 
                         alt={cert.title}
                         className="w-full h-auto object-contain"
                       />

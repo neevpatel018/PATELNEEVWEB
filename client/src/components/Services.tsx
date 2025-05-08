@@ -143,6 +143,22 @@ const Services = () => {
                         <p className="text-gray-400 text-lg mb-5">
                           {subService.description}
                         </p>
+                        
+                        {/* Display landing page subcategories if they exist */}
+                        {subService.id === "landing-pages" && subService.subCategories && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 mb-6">
+                            {subService.subCategories.map((subCategory) => (
+                              <div 
+                                key={subCategory.id}
+                                className="p-4 bg-gray-800/30 border border-gray-700 rounded-md hover:border-blue-600/50 transition-colors"
+                              >
+                                <h5 className="text-lg font-medium text-blue-200 mb-2">{subCategory.title}</h5>
+                                <p className="text-gray-400 text-sm">{subCategory.description}</p>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        
                         <div className="flex justify-end">
                           {subService.id === "mockups" && (
                             <Button 

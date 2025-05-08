@@ -1,8 +1,15 @@
+export type LandingPageSubCategory = {
+  id: string;
+  title: string;
+  description: string;
+};
+
 export type ServiceSubItem = {
   id: string;
   title: string;
   description: string;
   galleryType?: "entrance" | "device" | "office";
+  subCategories?: LandingPageSubCategory[];
 };
 
 export type ServiceItem = {
@@ -42,7 +49,29 @@ export const services: ServiceItem[] = [
       {
         id: "landing-pages",
         title: "Landing Pages",
-        description: "High-conversion landing pages designed to capture leads and communicate your value proposition effectively."
+        description: "High-conversion landing pages designed to capture leads and communicate your value proposition effectively.",
+        subCategories: [
+          {
+            id: "lawyer-landing",
+            title: "Lawyer Landing Pages",
+            description: "Professional landing pages for law firms with trust-building design elements and clear call-to-actions."
+          },
+          {
+            id: "gamer-landing",
+            title: "Gamer Landing Pages",
+            description: "Dynamic and engaging landing pages for gaming products with immersive visuals and interactive elements."
+          },
+          {
+            id: "realestate-landing",
+            title: "Real Estate Landing Pages",
+            description: "Elegant property showcase landing pages with visual emphasis and lead capture optimization."
+          },
+          {
+            id: "gym-landing",
+            title: "Gym Landing Pages",
+            description: "High-energy fitness landing pages designed to motivate visitors and drive membership signups."
+          }
+        ]
       },
       {
         id: "custom-ui-design",

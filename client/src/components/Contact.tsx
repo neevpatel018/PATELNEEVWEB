@@ -15,7 +15,7 @@ import {
   FormLabel,
   FormMessage
 } from "@/components/ui/form";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, BookOpen } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Instagram } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -195,7 +195,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-300 mb-1">Email</h4>
-                    <a href="mailto:contact@example.com" className="text-blue-400 hover:text-blue-300">contact@example.com</a>
+                    <a href="mailto:nexagen2105@gmail.com" className="text-blue-400 hover:text-blue-300">nexagen2105@gmail.com</a>
                   </div>
                 </div>
 
@@ -205,7 +205,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-300 mb-1">Phone</h4>
-                    <a href="tel:+11234567890" className="text-blue-400 hover:text-blue-300">+1 (123) 456-7890</a>
+                    <a href="tel:+917984656184" className="text-blue-400 hover:text-blue-300">+91 7984656184</a>
                   </div>
                 </div>
 
@@ -215,24 +215,24 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-300 mb-1">Location</h4>
-                    <p className="text-gray-400">San Francisco, California, USA</p>
+                    <p className="text-gray-400">Panchmahal, Gujarat, India</p>
                   </div>
                 </div>
 
                 <div className="pt-4">
                   <h4 className="text-sm font-medium text-gray-300 mb-3">Connect on Social</h4>
                   <div className="flex space-x-4">
-                    <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
+                    <a href="https://www.linkedin.com/in/neev-patel-640918315/" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
                       <Linkedin className="h-5 w-5" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
+                    <a href="https://x.com/neevpatel_018" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
                       <Twitter className="h-5 w-5" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
+                    <a href="https://github.com/neevpatel018" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
                       <Github className="h-5 w-5" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
-                      <BookOpen className="h-5 w-5" />
+                    <a href="https://www.instagram.com/neevpatel_018/" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
+                      <Instagram className="h-5 w-5" />
                     </a>
                   </div>
                 </div>

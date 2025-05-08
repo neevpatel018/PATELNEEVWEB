@@ -28,7 +28,7 @@ const Certifications = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-4 text-white">Professional Certifications</h2>
+          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Professional Certifications</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
             Continuously enhancing my skills through professional development and certification programs from industry leaders.
           </p>

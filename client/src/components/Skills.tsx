@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { skillCategories, proficiencySkills } from "../data/skillsData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Check, Brain, Cloud, Shield, Github, Server } from "lucide-react";
-import { SiJavascript, SiPython, SiReact, SiTypescript, SiNodedotjs, SiGit } from "react-icons/si";
+import { Check, Brain, Cloud, Shield, Github, Server, Code, Database } from "lucide-react";
 
 const getIcon = (iconName: string) => {
   switch (iconName) {
@@ -22,14 +21,18 @@ const getSkillIcon = (skillName: string) => {
   const iconClass = "w-8 h-8 text-blue-500";
   
   const nameToIcon: Record<string, JSX.Element> = {
-    "JavaScript": <SiJavascript className={iconClass} />,
-    "Python": <SiPython className={iconClass} />,
-    "React": <SiReact className={iconClass} />,
-    "TypeScript": <SiTypescript className={iconClass} />,
-    "Node.js": <SiNodedotjs className={iconClass} />,
+    "JavaScript": <Code className={iconClass} />,
+    "Python": <Code className={iconClass} />,
+    "React": <Code className={iconClass} />,
+    "TypeScript": <Code className={iconClass} />,
+    "Node.js": <Server className={iconClass} />,
     "Microsoft Azure": <Cloud className={iconClass} />,
-    "Git": <SiGit className={iconClass} />,
-    "Azure DevOps": <Server className={iconClass} />
+    "Git": <Github className={iconClass} />,
+    "Azure DevOps": <Server className={iconClass} />,
+    "Cloud Architecture": <Cloud className={iconClass} />,
+    "Information Security": <Shield className={iconClass} />,
+    "AI & Machine Learning": <Brain className={iconClass} />,
+    "Database Management": <Database className={iconClass} />
   };
   
   return nameToIcon[skillName] || null;

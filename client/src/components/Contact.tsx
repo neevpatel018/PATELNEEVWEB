@@ -66,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-white">
+    <section id="contact" className="py-16 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-12"
@@ -75,8 +75,8 @@ const Contact = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600">Get in Touch</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
             Interested in working together? Reach out to discuss how my expertise can help your organization.
           </p>
         </motion.div>
@@ -97,15 +97,15 @@ const Contact = () => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel className="text-gray-300">Full Name</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="Your name" 
                             {...field} 
-                            className="px-4 py-2 border focus:ring-2 focus:ring-primary-500"
+                            className="bg-gray-800 border-gray-700 text-white focus:ring-blue-500 focus:border-blue-500"
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -115,16 +115,16 @@ const Contact = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel className="text-gray-300">Email Address</FormLabel>
                         <FormControl>
                           <Input 
                             placeholder="your.email@example.com" 
                             type="email"
                             {...field}
-                            className="px-4 py-2 border focus:ring-2 focus:ring-primary-500"
+                            className="bg-gray-800 border-gray-700 text-white focus:ring-blue-500 focus:border-blue-500"
                           />
                         </FormControl>
-                        <FormMessage />
+                        <FormMessage className="text-red-400" />
                       </FormItem>
                     )}
                   />
@@ -135,15 +135,15 @@ const Contact = () => {
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Subject</FormLabel>
+                      <FormLabel className="text-gray-300">Subject</FormLabel>
                       <FormControl>
                         <Input 
                           placeholder="How can I help you?" 
                           {...field}
-                          className="px-4 py-2 border focus:ring-2 focus:ring-primary-500"
+                          className="bg-gray-800 border-gray-700 text-white focus:ring-blue-500 focus:border-blue-500"
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -153,23 +153,23 @@ const Contact = () => {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel className="text-gray-300">Message</FormLabel>
                       <FormControl>
                         <Textarea 
                           placeholder="Your message here..." 
                           {...field}
                           rows={5}
-                          className="px-4 py-2 border focus:ring-2 focus:ring-primary-500"
+                          className="bg-gray-800 border-gray-700 text-white focus:ring-blue-500 focus:border-blue-500"
                         />
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
@@ -185,53 +185,53 @@ const Contact = () => {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
           >
-            <div className="bg-gray-50 rounded-xl p-8 h-full">
-              <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+            <div className="bg-gray-800 rounded-xl p-8 h-full border border-gray-700">
+              <h3 className="text-xl font-semibold mb-6 text-white">Contact Information</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center mr-4">
-                    <Mail className="text-primary-500 h-5 w-5" />
+                  <div className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <Mail className="text-blue-500 h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700 mb-1">Email</h4>
-                    <a href="mailto:contact@example.com" className="text-primary-600 hover:underline">contact@example.com</a>
+                    <h4 className="text-sm font-medium text-gray-300 mb-1">Email</h4>
+                    <a href="mailto:contact@example.com" className="text-blue-400 hover:text-blue-300">contact@example.com</a>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center mr-4">
-                    <Phone className="text-primary-500 h-5 w-5" />
+                  <div className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <Phone className="text-blue-500 h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700 mb-1">Phone</h4>
-                    <a href="tel:+11234567890" className="text-primary-600 hover:underline">+1 (123) 456-7890</a>
+                    <h4 className="text-sm font-medium text-gray-300 mb-1">Phone</h4>
+                    <a href="tel:+11234567890" className="text-blue-400 hover:text-blue-300">+1 (123) 456-7890</a>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center mr-4">
-                    <MapPin className="text-primary-500 h-5 w-5" />
+                  <div className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center mr-4">
+                    <MapPin className="text-blue-500 h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-medium text-gray-700 mb-1">Location</h4>
-                    <p className="text-gray-600">San Francisco, California, USA</p>
+                    <h4 className="text-sm font-medium text-gray-300 mb-1">Location</h4>
+                    <p className="text-gray-400">San Francisco, California, USA</p>
                   </div>
                 </div>
 
                 <div className="pt-4">
-                  <h4 className="text-sm font-medium text-gray-700 mb-3">Connect on Social</h4>
+                  <h4 className="text-sm font-medium text-gray-300 mb-3">Connect on Social</h4>
                   <div className="flex space-x-4">
-                    <a href="#" className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-500 hover:bg-primary-100 transition-colors">
+                    <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
                       <Linkedin className="h-5 w-5" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-500 hover:bg-primary-100 transition-colors">
+                    <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
                       <Twitter className="h-5 w-5" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-500 hover:bg-primary-100 transition-colors">
+                    <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
                       <Github className="h-5 w-5" />
                     </a>
-                    <a href="#" className="w-10 h-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-500 hover:bg-primary-100 transition-colors">
+                    <a href="#" className="w-10 h-10 bg-gray-700 rounded-lg flex items-center justify-center text-blue-500 hover:bg-gray-600 transition-colors">
                       <BookOpen className="h-5 w-5" />
                     </a>
                   </div>

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { User } from "lucide-react";
+import { User, Cpu, Cloud, Shield, Code } from "lucide-react";
 
 const About = () => {
   const fadeIn = {
@@ -16,14 +16,14 @@ const About = () => {
   };
 
   const skills = [
-    "Microsoft Certified",
-    "Cloud Computing",
-    "Artificial Intelligence",
-    "Information Security"
+    { name: "Microsoft Certified", icon: <Shield className="w-4 h-4 mr-2" /> },
+    { name: "Cloud Computing", icon: <Cloud className="w-4 h-4 mr-2" /> },
+    { name: "Artificial Intelligence", icon: <Cpu className="w-4 h-4 mr-2" /> },
+    { name: "Information Security", icon: <Shield className="w-4 h-4 mr-2" /> }
   ];
 
   return (
-    <section id="about" className="py-16 bg-white">
+    <section id="about" className="py-16 bg-gray-900 text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <motion.div 
@@ -35,14 +35,14 @@ const About = () => {
             custom={0}
           >
             {/* A professional headshot placeholder */}
-            <div className="bg-gray-200 rounded-lg overflow-hidden h-96 flex items-center justify-center">
-              <User className="h-32 w-32 text-gray-400" />
+            <div className="bg-gray-800 border border-gray-700 rounded-lg overflow-hidden h-96 flex items-center justify-center">
+              <User className="h-32 w-32 text-blue-500" />
             </div>
           </motion.div>
           
           <div className="md:w-1/2">
             <motion.h2 
-              className="text-3xl font-bold mb-6"
+              className="text-3xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-600"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -53,7 +53,7 @@ const About = () => {
             </motion.h2>
             
             <motion.p 
-              className="text-gray-700 mb-4"
+              className="text-gray-300 mb-4"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -64,7 +64,7 @@ const About = () => {
             </motion.p>
             
             <motion.p 
-              className="text-gray-700 mb-6"
+              className="text-gray-300 mb-6"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -86,9 +86,9 @@ const About = () => {
                 <Badge 
                   key={index} 
                   variant="secondary"
-                  className="bg-primary-50 text-primary-700 hover:bg-primary-100 px-4 py-2 text-sm font-medium"
+                  className="bg-gray-800 border border-gray-700 text-blue-400 hover:bg-gray-700 px-4 py-2 text-sm font-medium flex items-center"
                 >
-                  {skill}
+                  {skill.icon} {skill.name}
                 </Badge>
               ))}
             </motion.div>

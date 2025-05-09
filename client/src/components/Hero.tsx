@@ -75,8 +75,7 @@ const Hero = () => {
                   Get in Touch
                 </Button>
                 <Button 
-                  variant="outline" 
-                  className="border-2 border-purple-800 text-gray-300 hover:bg-purple-900/30 font-medium px-6 py-3 rounded-md"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-md"
                   onClick={() => scrollToSection("certifications")}
                 >
                   View Certifications

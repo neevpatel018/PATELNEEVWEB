@@ -21,18 +21,11 @@ const getSkillIcon = (skillName: string) => {
   const iconClass = "w-8 h-8 text-blue-500";
   
   const nameToIcon: Record<string, JSX.Element> = {
-    "JavaScript": <Code className={iconClass} />,
-    "Python": <Code className={iconClass} />,
-    "React": <Code className={iconClass} />,
-    "TypeScript": <Code className={iconClass} />,
-    "Node.js": <Server className={iconClass} />,
-    "Microsoft Azure": <Cloud className={iconClass} />,
-    "Git": <Github className={iconClass} />,
-    "Azure DevOps": <Server className={iconClass} />,
-    "Cloud Architecture": <Cloud className={iconClass} />,
-    "Information Security": <Shield className={iconClass} />,
-    "AI & Machine Learning": <Brain className={iconClass} />,
-    "Database Management": <Database className={iconClass} />
+    "Python Basics": <Code className={iconClass} />,
+    "SQL": <Database className={iconClass} />,
+    "Canva Design": <Code className={iconClass} />,
+    "AI & ChatGPT Usage": <Brain className={iconClass} />,
+    "Git & GitHub": <Github className={iconClass} />
   };
   
   return nameToIcon[skillName] || null;
@@ -72,9 +65,9 @@ const Skills = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-bold mb-4">Professional Skills</h2>
+          <h2 className="text-4xl font-bold mb-4">Skills & Expertise</h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            My diverse skill set enables me to deliver comprehensive solutions across multiple technology domains.
+            My diverse capabilities span AI tools, design, social media, and technical fundamentals for modern digital creation.
           </p>
         </motion.div>
         
@@ -90,7 +83,7 @@ const Skills = () => {
               custom={categoryIndex}
             >
               <div className="flex items-center mb-4">
-                {getIcon(category.icon)}
+                {/* Rendering the emoji as part of the title since it's already included in the title */}
                 <h3 className="text-xl font-semibold text-white">{category.title}</h3>
               </div>
               <ul className="space-y-3">
@@ -114,7 +107,7 @@ const Skills = () => {
             transition={{ duration: 0.5 }}
             className="bg-gray-800 p-6 rounded-xl border border-gray-700"
           >
-            <h3 className="text-xl font-semibold mb-6 text-white">Technical Proficiency</h3>
+            <h3 className="text-xl font-semibold mb-6 text-white">🔧 Technical Proficiency</h3>
             
             <div className="space-y-6">
               {technicalSkills.map((skill, index) => (
@@ -148,7 +141,7 @@ const Skills = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-gray-800 p-6 rounded-xl border border-gray-700"
           >
-            <h3 className="text-xl font-semibold mb-6 text-white">Professional Skills</h3>
+            <h3 className="text-xl font-semibold mb-6 text-white">💼 Professional Skills</h3>
             
             <div className="space-y-6">
               {professionalSkills.map((skill, index) => (

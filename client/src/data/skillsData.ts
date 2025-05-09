@@ -14,81 +14,91 @@ export type ProficiencySkill = {
 export const skillCategories: SkillCategory[] = [
   {
     id: "ai-ml",
-    title: "AI & Machine Learning",
+    title: "🤖 AI & Machine Learning",
     icon: "brain",
     skills: [
-      "Generative AI Implementation",
-      "AI Solutions Architecture",
-      "Machine Learning Pipelines",
-      "Responsible AI Frameworks",
-      "AI Strategy Development"
+      "AI Tools for Productivity",
+      "Generative AI with ChatGPT & MidJourney",
+      "AI in Everyday Life Projects",
+      "Canva & AI Integration",
+      "Beginner Python for AI"
     ]
   },
   {
     id: "cloud",
-    title: "Cloud Computing",
+    title: "☁️ Cloud & Development",
     icon: "cloud",
     skills: [
-      "Microsoft Azure Solutions",
-      "Cloud Architecture Design",
-      "Infrastructure as Code",
-      "Serverless Architecture",
-      "Cloud Migration Strategy"
+      "Web Hosting Basics (GitHub Pages, Netlify)",
+      "Cloud Concepts with Google Cloud / Azure Fundamentals",
+      "Interactive Portfolio Hosting",
+      "Version Control with Git & GitHub",
+      "Challenge Deployments"
     ]
   },
   {
     id: "security",
-    title: "Security & Compliance",
+    title: "🔐 Security Awareness",
     icon: "shield",
     skills: [
-      "Microsoft Purview Implementation",
-      "Information Security Architecture",
-      "Data Protection Strategies",
-      "Sensitive Information Management",
-      "Compliance Framework Implementation"
+      "Internet Safety Practices",
+      "Two-Factor Authentication Setup",
+      "Secure Coding Basics",
+      "Privacy Settings Management",
+      "Responsible AI Use"
     ]
   }
 ];
 
 export const proficiencySkills: ProficiencySkill[] = [
   {
-    name: "Microsoft Azure",
+    name: "Canva Design",
     percentage: 95,
     category: "technical"
   },
   {
-    name: "AI & Machine Learning",
+    name: "AI & ChatGPT Usage",
     percentage: 90,
     category: "technical"
   },
   {
-    name: "Information Security",
-    percentage: 85,
+    name: "SQL",
+    percentage: 50,
     category: "technical"
   },
   {
-    name: "Cloud Architecture",
+    name: "Python Basics",
+    percentage: 70,
+    category: "technical"
+  },
+  {
+    name: "Git & GitHub",
+    percentage: 65,
+    category: "technical"
+  },
+  {
+    name: "Creativity & Innovation",
+    percentage: 95,
+    category: "professional"
+  },
+  {
+    name: "Content Creation for Social Media",
     percentage: 92,
-    category: "technical"
-  },
-  {
-    name: "Leadership & Coaching",
-    percentage: 95,
     category: "professional"
   },
   {
-    name: "Project Management",
-    percentage: 88,
+    name: "Marketing & Branding",
+    percentage: 89,
     category: "professional"
   },
   {
-    name: "Strategic Planning",
+    name: "Communication & Presentation",
     percentage: 90,
     category: "professional"
   },
   {
-    name: "Digital Transformation",
-    percentage: 93,
+    name: "Problem Solving",
+    percentage: 88,
     category: "professional"
   }
 ];

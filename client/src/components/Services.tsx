@@ -246,7 +246,7 @@ const Services = () => {
                                 <p className="text-gray-400 text-xs sm:text-sm">{subCategory.description}</p>
                                 
                                 {/* Add View button specifically for the gym landing page subcategory */}
-                                {subCategory.id === "gym" && (
+                                {subCategory.id === "gym-landing" && (
                                   <div className="flex justify-end mt-3">
                                     <Button
                                       variant="outline"

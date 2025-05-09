@@ -489,26 +489,48 @@ const Services = () => {
                             </motion.div>
                           )}
                           {subService.id === "thumbnail-design" && (
-                            <Button 
-                              variant="outline" 
-                              size="sm" 
-                              className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
-                              onClick={handleOpenThumbnailGallery}
+                            <motion.div
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              animate={{ 
+                                boxShadow: ["0 0 0 rgba(59, 130, 246, 0)", "0 0 8px rgba(59, 130, 246, 0.5)", "0 0 0 rgba(59, 130, 246, 0)"] 
+                              }}
+                              transition={{ 
+                                boxShadow: { duration: 2, repeat: Infinity, delay: 0.3 }
+                              }}
                             >
-                              <span className="mr-2">View</span>
-                              <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                            </Button>
+                              <Button 
+                                variant="outline" 
+                                size="sm" 
+                                className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
+                                onClick={handleOpenThumbnailGallery}
+                              >
+                                <span className="mr-2">View</span>
+                                <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                              </Button>
+                            </motion.div>
                           )}
                           {subService.id === "custom-ui-design" && (
-                            <Button 
-                              variant="outline" 
-                              size="sm" 
-                              className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
-                              onClick={handleOpenUIDesignGallery}
+                            <motion.div
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              animate={{ 
+                                boxShadow: ["0 0 0 rgba(59, 130, 246, 0)", "0 0 8px rgba(59, 130, 246, 0.5)", "0 0 0 rgba(59, 130, 246, 0)"] 
+                              }}
+                              transition={{ 
+                                boxShadow: { duration: 2, repeat: Infinity, delay: 0.6 }
+                              }}
                             >
-                              <span className="mr-2">View</span>
-                              <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                            </Button>
+                              <Button 
+                                variant="outline" 
+                                size="sm" 
+                                className="group bg-blue-900/20 border-blue-500/30 hover:bg-blue-900/40 hover:border-blue-400 text-blue-300"
+                                onClick={handleOpenUIDesignGallery}
+                              >
+                                <span className="mr-2">View</span>
+                                <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                              </Button>
+                            </motion.div>
                           )}
                         </div>
                       </motion.div>

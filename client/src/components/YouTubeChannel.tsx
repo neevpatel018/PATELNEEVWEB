@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { ExternalLink, Play } from 'lucide-react';
 
 // Import the YouTube assets
-import YouTubeLogoPath from '@assets/Black Red and White Brutalist Swiss Photographic Birthday Party Music YouTube Banner.png';
+import YouTubeLogoPath from '@assets/NEXAGEN.png';
 import IPLThumbnail1 from '@assets/IPL 1.png';
 import IPLThumbnail2 from '@assets/IPL 2.png';
 import RCBThumbnail from '@assets/RCB.jpeg';
@@ -49,26 +49,29 @@ const YouTubeChannel: React.FC = () => {
     {
       id: 'vid1',
       thumbnail: IPLThumbnail1,
-      title: 'IPL 2025 Season Highlights',
-      views: '45K views',
+      title: 'Designing Next-Gen Web Experiences',
+      views: '12K views',
       date: '2 weeks ago',
-      duration: '14:32'
+      duration: '10:22',
+      url: 'https://www.youtube.com/@NEXAGENDESIGNS'
     },
     {
       id: 'vid2',
       thumbnail: IPLThumbnail2,
-      title: 'Top 10 IPL Moments',
-      views: '32K views',
+      title: 'Digital Design Trends 2025',
+      views: '8.5K views',
       date: '3 weeks ago',
-      duration: '11:08'
+      duration: '15:48',
+      url: 'https://www.youtube.com/@NEXAGENDESIGNS'
     },
     {
       id: 'vid3',
       thumbnail: RCBThumbnail,
-      title: 'RCB vs CSK Match Analysis',
-      views: '89K views',
+      title: 'Creating Modern UI/UX Interfaces',
+      views: '21K views',
       date: '1 week ago',
-      duration: '18:45'
+      duration: '12:35',
+      url: 'https://www.youtube.com/@NEXAGENDESIGNS'
     }
   ];
 
@@ -76,7 +79,7 @@ const YouTubeChannel: React.FC = () => {
     <section id="youtube" className="py-16 md:py-24 relative bg-gray-900 overflow-hidden">
       {/* Animated background effects */}
       <motion.div 
-        className="absolute top-1/4 right-1/4 w-96 h-96 bg-red-500/10 rounded-full filter blur-[100px] z-0"
+        className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[100px] z-0"
         animate={{ 
           scale: [1, 1.2, 1],
           opacity: [0.1, 0.2, 0.1]
@@ -89,7 +92,7 @@ const YouTubeChannel: React.FC = () => {
       />
       
       <motion.div 
-        className="absolute bottom-1/3 left-1/2 w-96 h-96 bg-red-600/10 rounded-full filter blur-[100px] z-0"
+        className="absolute bottom-1/3 left-1/2 w-96 h-96 bg-cyan-600/10 rounded-full filter blur-[100px] z-0"
         animate={{ 
           scale: [1, 1.3, 1],
           opacity: [0.1, 0.15, 0.1]
@@ -110,9 +113,9 @@ const YouTubeChannel: React.FC = () => {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-red-600">My YouTube Channel</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">NEXAGEN DESIGNS</h2>
           <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
-            Check out my latest videos and content. Subscribe for regular tech updates, cricket analysis, and design tutorials.
+            Check out our latest design and development tutorials. Subscribe for cutting-edge UI/UX insights, creative digital solutions, and tech innovations.
           </p>
         </motion.div>
 
@@ -140,21 +143,21 @@ const YouTubeChannel: React.FC = () => {
                     />
                   </motion.div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-2">Neev Patel</h3>
-                  <p className="text-gray-400 mb-4 text-center">Tech enthusiast sharing insights on cricket, design, and development</p>
+                  <h3 className="text-2xl font-bold text-white mb-2">NEXAGEN DESIGNS</h3>
+                  <p className="text-gray-400 mb-4 text-center">Creative design & development solutions for the next generation</p>
                   
                   <div className="flex flex-col space-y-4 w-full">
                     <div className="flex justify-between items-center border-b border-gray-800 pb-3">
                       <span className="text-gray-300">Subscribers</span>
-                      <span className="font-semibold text-white">8.2K</span>
+                      <span className="font-semibold text-white">1.46K</span>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-800 pb-3">
                       <span className="text-gray-300">Videos</span>
-                      <span className="font-semibold text-white">45</span>
+                      <span className="font-semibold text-white">24</span>
                     </div>
                     <div className="flex justify-between items-center pb-3">
                       <span className="text-gray-300">Total Views</span>
-                      <span className="font-semibold text-white">1.2M</span>
+                      <span className="font-semibold text-white">43.5K</span>
                     </div>
                   </div>
                   
@@ -164,8 +167,8 @@ const YouTubeChannel: React.FC = () => {
                     whileTap={{ scale: 0.97 }}
                   >
                     <Button 
-                      className="w-full bg-red-600 hover:bg-red-700 text-white"
-                      onClick={() => window.open('https://youtube.com/@neevpatel_018', '_blank')}
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                      onClick={() => window.open('https://www.youtube.com/@NEXAGENDESIGNS', '_blank')}
                     >
                       <span className="mr-2">Subscribe</span>
                       <ExternalLink className="h-4 w-4" />
@@ -205,9 +208,10 @@ const YouTubeChannel: React.FC = () => {
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                           <motion.div 
-                            className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center"
+                            className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center cursor-pointer"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
+                            onClick={() => window.open(video.url, '_blank')}
                           >
                             <Play className="h-6 w-6 text-white" />
                           </motion.div>
@@ -217,7 +221,10 @@ const YouTubeChannel: React.FC = () => {
                         </div>
                       </div>
                       <div className="p-4">
-                        <h4 className="text-lg font-semibold text-white mb-1 line-clamp-2 group-hover:text-red-400 transition-colors">
+                        <h4 
+                          className="text-lg font-semibold text-white mb-1 line-clamp-2 group-hover:text-red-400 transition-colors cursor-pointer"
+                          onClick={() => window.open(video.url, '_blank')}
+                        >
                           {video.title}
                         </h4>
                         <div className="flex items-center text-sm text-gray-400">
@@ -249,7 +256,7 @@ const YouTubeChannel: React.FC = () => {
                   <Button 
                     variant="outline" 
                     className="border-2 border-red-500/30 text-red-400 hover:bg-red-900/20 hover:border-red-400"
-                    onClick={() => window.open('https://youtube.com/@neevpatel_018', '_blank')}
+                    onClick={() => window.open('https://www.youtube.com/@NEXAGENDESIGNS', '_blank')}
                   >
                     <span className="mr-2">View All Videos</span>
                     <ExternalLink className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />

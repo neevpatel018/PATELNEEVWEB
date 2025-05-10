@@ -23,8 +23,49 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-16 bg-gray-900 text-white">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-16 bg-gray-900 text-white relative overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div 
+        className="absolute -top-20 -left-20 w-60 h-60 bg-blue-900/10 rounded-full filter blur-[50px] z-0"
+        animate={{
+          y: [0, 30, 0],
+          rotate: [0, 10, 0]
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      <motion.div 
+        className="absolute -bottom-10 -right-10 w-80 h-80 bg-purple-900/10 rounded-full filter blur-[60px] z-0"
+        animate={{
+          scale: [1, 1.2, 1],
+          rotate: [0, -15, 0]
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      <motion.div 
+        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-blue-500/10 rounded-full z-0"
+        animate={{
+          scale: [1, 1.1, 1],
+          rotate: [0, 360],
+          opacity: [0.1, 0.15, 0.1]
+        }}
+        transition={{
+          duration: 25,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col md:flex-row gap-12 items-center">
           <motion.div 
             className="md:w-1/2"

@@ -56,8 +56,61 @@ const Skills = () => {
   const professionalSkills = proficiencySkills.filter(skill => skill.category === "professional");
 
   return (
-    <section id="skills" className="py-16 bg-gray-900 text-white">
-      <div className="container mx-auto px-4">
+    <section id="skills" className="py-16 bg-gray-900 text-white relative overflow-hidden">
+      {/* Animated grid background */}
+      <motion.div 
+        className="absolute inset-0 z-0 opacity-5" 
+        style={{ 
+          backgroundImage: `
+            linear-gradient(to right, rgba(59, 130, 246, 0.5) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(59, 130, 246, 0.5) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px'
+        }}
+        animate={{
+          backgroundPosition: ['0px 0px', '40px 40px']
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+      
+      {/* Floating code blocks */}
+      <motion.div
+        className="absolute left-10 top-20 text-blue-500/10 text-6xl font-mono z-0"
+        animate={{
+          y: [0, -30, 0],
+          opacity: [0.1, 0.2, 0.1]
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        &lt;/&gt;
+      </motion.div>
+      
+      <motion.div
+        className="absolute right-10 bottom-20 text-purple-500/10 text-8xl font-mono z-0"
+        animate={{
+          y: [0, 30, 0],
+          opacity: [0.1, 0.15, 0.1],
+          rotate: [0, 5, 0]
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      >
+        { }
+      </motion.div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}

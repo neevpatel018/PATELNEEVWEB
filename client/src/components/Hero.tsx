@@ -16,8 +16,49 @@ const Hero = () => {
   return (
     <section className="bg-black text-white py-20 md:py-28 min-h-[90vh] flex items-center relative overflow-hidden">
       {/* Background glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[80px] z-0"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-500/10 rounded-full filter blur-[80px] z-0"></div>
+      <motion.div 
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[80px] z-0"
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.1, 0.15, 0.1],
+          x: [0, 20, 0],
+          y: [0, -20, 0]
+        }}
+        transition={{ 
+          duration: 10, 
+          repeat: Infinity,
+          ease: "easeInOut" 
+        }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-purple-500/10 rounded-full filter blur-[80px] z-0"
+        animate={{ 
+          scale: [1, 1.3, 1],
+          opacity: [0.1, 0.2, 0.1],
+          x: [0, -30, 0],
+          y: [0, 30, 0]
+        }}
+        transition={{ 
+          duration: 12, 
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      />
+      <motion.div 
+        className="absolute top-1/3 right-1/4 w-80 h-80 bg-cyan-500/5 rounded-full filter blur-[70px] z-0"
+        animate={{ 
+          scale: [1, 1.4, 1],
+          opacity: [0.05, 0.1, 0.05],
+          rotate: [0, 15, 0]
+        }}
+        transition={{ 
+          duration: 15, 
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      />
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left side - Illustration */}

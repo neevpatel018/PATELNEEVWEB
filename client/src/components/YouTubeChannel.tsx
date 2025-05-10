@@ -149,15 +149,15 @@ const YouTubeChannel: React.FC = () => {
                   <div className="flex flex-col space-y-4 w-full">
                     <div className="flex justify-between items-center border-b border-gray-800 pb-3">
                       <span className="text-gray-300">Subscribers</span>
-                      <span className="font-semibold text-white">1.46K</span>
+                      <span className="font-semibold text-white">144</span>
                     </div>
                     <div className="flex justify-between items-center border-b border-gray-800 pb-3">
                       <span className="text-gray-300">Videos</span>
-                      <span className="font-semibold text-white">24</span>
+                      <span className="font-semibold text-white">18</span>
                     </div>
                     <div className="flex justify-between items-center pb-3">
                       <span className="text-gray-300">Total Views</span>
-                      <span className="font-semibold text-white">43.5K</span>
+                      <span className="font-semibold text-white">4.2K</span>
                     </div>
                   </div>
                   

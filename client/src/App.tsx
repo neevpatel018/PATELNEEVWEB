@@ -11,6 +11,7 @@ import About from "./components/About";
 import Certifications from "./components/Certifications";
 import Skills from "./components/Skills";
 import Services from "./components/Services";
+import YouTubeChannel from "./components/YouTubeChannel";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import NotFound from "@/pages/not-found";
@@ -41,6 +42,7 @@ function Portfolio() {
         <Certifications />
         <Skills />
         <Services />
+        <YouTubeChannel />
         <Contact />
       </main>
       <Footer />

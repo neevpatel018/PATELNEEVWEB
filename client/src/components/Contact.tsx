@@ -66,8 +66,59 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-gray-900 text-white">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-16 bg-gray-900 text-white relative overflow-hidden">
+      {/* Digital connection lines animation */}
+      {Array.from({ length: 8 }).map((_, index) => (
+        <motion.div
+          key={`connection-${index}`}
+          className="absolute bg-gradient-to-r from-blue-500/10 to-cyan-500/10 h-[1px] z-0"
+          style={{
+            top: `${(index + 1) * 10}%`,
+            left: '0',
+            right: '0',
+            opacity: 0.3
+          }}
+          animate={{
+            opacity: [0.1, 0.3, 0.1],
+            height: ['1px', '2px', '1px'],
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+          }}
+          transition={{
+            duration: 10 + index * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: index * 0.5
+          }}
+        />
+      ))}
+      
+      {/* Glowing circular nodes */}
+      {Array.from({ length: 5 }).map((_, index) => (
+        <motion.div
+          key={`node-${index}`}
+          className="absolute w-4 h-4 rounded-full bg-blue-500/30 z-0"
+          style={{
+            top: `${Math.random() * 80 + 10}%`,
+            left: `${Math.random() * 80 + 10}%`,
+          }}
+          animate={{
+            opacity: [0.1, 0.4, 0.1],
+            boxShadow: [
+              '0 0 0 0 rgba(59, 130, 246, 0.2)',
+              '0 0 20px 10px rgba(59, 130, 246, 0.3)',
+              '0 0 0 0 rgba(59, 130, 246, 0.2)'
+            ]
+          }}
+          transition={{
+            duration: 4 + index,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: index * 0.7
+          }}
+        />
+      ))}
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}

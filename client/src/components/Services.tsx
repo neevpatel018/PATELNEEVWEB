@@ -120,6 +120,61 @@ const Services = () => {
 
   return (
     <section id="services" className="py-16 bg-black text-white relative overflow-hidden">
+      {/* Particle-like floating shapes */}
+      {Array.from({ length: 15 }).map((_, index) => (
+        <motion.div
+          key={`particle-${index}`}
+          className="absolute bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full z-0"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            width: `${(Math.floor(Math.random() * 8) + 4)}px`,
+            height: `${(Math.floor(Math.random() * 8) + 4)}px`,
+          }}
+          animate={{
+            y: [0, -20, 0, 20, 0],
+            x: [0, 20, 0, -20, 0],
+            scale: [1, 1.2, 1, 0.8, 1],
+            opacity: [0.2, 0.5, 0.2]
+          }}
+          transition={{
+            duration: 10 + Math.random() * 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: Math.random() * 5
+          }}
+        />
+      ))}
+      
+      {/* Pulsating gradient background */}
+      <motion.div 
+        className="absolute inset-0 z-0 opacity-10 bg-gradient-to-br from-blue-900 to-purple-900"
+        animate={{ 
+          opacity: [0.05, 0.1, 0.05],
+          background: [
+            'linear-gradient(to bottom right, rgba(30, 64, 175, 0.2), rgba(109, 40, 217, 0.2))',
+            'linear-gradient(to bottom right, rgba(37, 99, 235, 0.2), rgba(124, 58, 237, 0.2))',
+            'linear-gradient(to bottom right, rgba(30, 64, 175, 0.2), rgba(109, 40, 217, 0.2))'
+          ]
+        }}
+        transition={{ 
+          duration: 8, 
+          repeat: Infinity,
+          ease: "easeInOut" 
+        }}
+      />
+      
+      {/* Tech-inspired grid lines */}
+      <div className="absolute inset-0 z-0 opacity-10" 
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 20px 20px, rgba(59, 130, 246, 0.2) 1px, transparent 1px),
+            radial-gradient(circle at 60px 60px, rgba(139, 92, 246, 0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px'
+        }}
+      />
+      
       {/* Display the mockup gallery when active */}
       {isMockupGalleryOpen && (
         <MockupGallery 

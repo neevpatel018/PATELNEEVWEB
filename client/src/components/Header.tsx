@@ -23,6 +23,7 @@ const Header = () => {
     "certifications",
     "skills",
     "services",
+    "youtube",
     "contact",
   ]);
 

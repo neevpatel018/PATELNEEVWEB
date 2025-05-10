@@ -77,28 +77,95 @@ const YouTubeChannel: React.FC = () => {
 
   return (
     <section id="youtube" className="py-16 md:py-24 relative bg-gray-900 overflow-hidden">
-      {/* Animated background effects */}
+      {/* Video play buttons animation */}
+      {Array.from({ length: 8 }).map((_, index) => (
+        <motion.div
+          key={`play-${index}`}
+          className="absolute w-16 h-16 rounded-full bg-blue-600/10 z-0 flex items-center justify-center"
+          style={{
+            top: `${Math.random() * 80 + 10}%`,
+            left: `${Math.random() * 80 + 10}%`,
+          }}
+          animate={{
+            scale: [1, 1.5, 1],
+            opacity: [0.1, 0.3, 0.1],
+            boxShadow: [
+              '0 0 0 0 rgba(37, 99, 235, 0)',
+              '0 0 0 10px rgba(37, 99, 235, 0.2)',
+              '0 0 0 0 rgba(37, 99, 235, 0)'
+            ]
+          }}
+          transition={{
+            duration: 4 + index,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: index * 0.7
+          }}
+        >
+          <motion.div
+            className="w-0 h-0 border-t-[8px] border-t-transparent border-b-[8px] border-b-transparent border-l-[12px] border-l-blue-500/30 ml-1"
+          />
+        </motion.div>
+      ))}
+
+      {/* Animated video frame */}
       <motion.div 
-        className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-[100px] z-0"
+        className="absolute top-20 right-20 w-40 h-24 border-2 border-blue-500/20 rounded z-0"
+        animate={{
+          borderColor: ['rgba(37, 99, 235, 0.2)', 'rgba(6, 182, 212, 0.2)', 'rgba(37, 99, 235, 0.2)'],
+          rotate: [0, 5, 0, -5, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
+      
+      {/* Animated subscriber count wave */}
+      <motion.div
+        className="absolute bottom-40 left-20 h-2 w-64 z-0"
+        style={{
+          background: 'linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), transparent)'
+        }}
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 0%'],
+          y: [0, 10, 0, -10, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      />
+      
+      {/* Background glowing orbs - now more visible */}
+      <motion.div 
+        className="absolute top-1/4 right-1/4 w-96 h-96 bg-blue-500/15 rounded-full filter blur-[80px] z-0"
         animate={{ 
           scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1]
+          opacity: [0.15, 0.3, 0.15],
+          x: [0, 30, 0],
+          y: [0, -20, 0]
         }}
         transition={{ 
-          duration: 8, 
+          duration: 10, 
           repeat: Infinity,
           ease: "easeInOut" 
         }}
       />
       
       <motion.div 
-        className="absolute bottom-1/3 left-1/2 w-96 h-96 bg-cyan-600/10 rounded-full filter blur-[100px] z-0"
+        className="absolute bottom-1/3 left-1/2 w-96 h-96 bg-cyan-600/15 rounded-full filter blur-[80px] z-0"
         animate={{ 
           scale: [1, 1.3, 1],
-          opacity: [0.1, 0.15, 0.1]
+          opacity: [0.15, 0.25, 0.15],
+          x: [0, -40, 0],
+          y: [0, 30, 0]
         }}
         transition={{ 
-          duration: 10, 
+          duration: 12, 
           repeat: Infinity,
           ease: "easeInOut",
           delay: 1

@@ -198,7 +198,7 @@ const YouTubeChannel: React.FC = () => {
                   }}
                   className="group"
                 >
-                  <Card className="h-full bg-gray-900/70 border border-gray-800 backdrop-blur-sm overflow-hidden hover:border-red-500/50 transition-colors duration-300">
+                  <Card className="h-full bg-gray-900/70 border border-gray-800 backdrop-blur-sm overflow-hidden hover:border-blue-500/50 transition-colors duration-300">
                     <CardContent className="p-0">
                       <div className="relative">
                         <img 
@@ -208,7 +208,7 @@ const YouTubeChannel: React.FC = () => {
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                           <motion.div 
-                            className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center cursor-pointer"
+                            className="w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center cursor-pointer"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={() => window.open(video.url, '_blank')}
@@ -222,7 +222,7 @@ const YouTubeChannel: React.FC = () => {
                       </div>
                       <div className="p-4">
                         <h4 
-                          className="text-lg font-semibold text-white mb-1 line-clamp-2 group-hover:text-red-400 transition-colors cursor-pointer"
+                          className="text-lg font-semibold text-white mb-1 line-clamp-2 group-hover:text-blue-400 transition-colors cursor-pointer"
                           onClick={() => window.open(video.url, '_blank')}
                         >
                           {video.title}
@@ -247,7 +247,7 @@ const YouTubeChannel: React.FC = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   animate={{ 
-                    boxShadow: ["0 0 0 rgba(239, 68, 68, 0)", "0 0 8px rgba(239, 68, 68, 0.5)", "0 0 0 rgba(239, 68, 68, 0)"] 
+                    boxShadow: ["0 0 0 rgba(59, 130, 246, 0)", "0 0 8px rgba(59, 130, 246, 0.5)", "0 0 0 rgba(59, 130, 246, 0)"] 
                   }}
                   transition={{ 
                     boxShadow: { duration: 2, repeat: Infinity }
@@ -255,7 +255,7 @@ const YouTubeChannel: React.FC = () => {
                 >
                   <Button 
                     variant="outline" 
-                    className="border-2 border-red-500/30 text-red-400 hover:bg-red-900/20 hover:border-red-400"
+                    className="border-2 border-blue-500/30 text-blue-400 hover:bg-blue-900/20 hover:border-blue-400"
                     onClick={() => window.open('https://www.youtube.com/@NEXAGENDESIGNS', '_blank')}
                   >
                     <span className="mr-2">View All Videos</span>
